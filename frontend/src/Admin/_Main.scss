@@ -1,0 +1,244 @@
+.A-Container {
+  @include flex-row();
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.A-Content-container { // CONTENT-CONTAINER
+  padding: 0;
+  background-color: darken($content-grey,3%);
+  transition: all .3s ease;
+  width: 100%;
+  @include breakpoint(768px) {
+    padding: 2*$base 0;
+  }
+}
+.A-Content-container-inner {
+  margin: 0 auto;
+  padding: $base;
+  width: calc(100% - #{$base/0});
+  background-color: darken(white,2%);
+  box-shadow: 0px 0px 21px -6px rgba(0,0,0,0.75);
+  @include breakpoint(768px) {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2*$base;
+  }
+}
+
+//////////////////////////////////////////
+// HEADERS
+//////////////////////////////////////////
+.A-block {
+  h1 {
+    text-align: center
+  }
+}
+.A-block-header-1 {
+  text-align: center;
+}
+.A-block-header-2 {
+  border-top: 1px solid $grey;
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 30px;
+}
+//////////////////////////////////////////
+// INPUT ROWS
+//////////////////////////////////////////
+.A-input-row {
+  @include flex-row();
+  margin-bottom: 2*$base;
+
+}
+.A-input-row-icon {
+  flex-basis: 2*$base;
+  display: none;
+  i {
+    margin-top: 40px;
+    font-size: 30px;
+    display: block;
+  }
+  @include breakpoint(768px) {
+    display: block;
+  }
+}
+.A-input-row-input {
+  flex-basis: 100%;
+  @include breakpoint(768px) {
+    margin-left: 2*$base;
+    flex-basis: calc(100% - #{4*$base});
+  }
+}
+//////////////////////////////////////////
+// A-standard preview cols
+//////////////////////////////////////////
+.A-cols {
+  @include flex-row();
+}
+.A-col {
+  @include breakpoint(1px, 989px) {
+    @include flex-gtr-col(1,$base);
+  }
+  @include breakpoint(960px, 1149px) {
+    @include flex-gtr-col(2,$base);
+  }
+  @include breakpoint(1150px) {
+    @include flex-gtr-col(3,$base);
+  }
+  position: relative;
+  padding: $base $base 5*$base $base;
+  background-color: $content-grey;
+    ul {
+      padding-left: $base+5;
+      li {
+        padding: 0 0 $base 0;
+      }
+    }
+}
+.A-col--wide {
+  @include breakpoint(1px, 989px) {
+    @include flex-gtr-col(1,$base);
+  }
+  @include breakpoint(960px) {
+    @include flex-gtr-col(2,$base);
+  }
+  position: relative;
+  padding: $base $base 6*$base $base;
+  background-color: $content-grey;
+}
+.A-col-actions {
+  position: absolute;
+  bottom: $base;
+  left: $base;
+  right: $base;
+  @include flex-row();
+  .A-col-actions--one-col {
+    @include flex-gtr-col(1,$base);
+  }
+  .A-col-actions--two-col {
+    @include flex-gtr-col(2,$base);
+  }
+  button {
+      width: 100%;
+      display: block;
+  }
+}
+
+.A-col-btn--delete {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  @include flat-btn($red,"\f104");
+}
+.A-col-btn--edit {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  @include flat-btn($turq,"\f127");
+}
+a.A-col-btn--edit {
+  padding: 7px 0;
+}
+
+
+.A-col-btn--disabled {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  @include flat-btn($grey,"\f104");
+}
+/////////////////////////////////////////////
+// Content bild kolumner
+/////////////////////////////////////////////
+.A-image-cols {
+  margin-top: -15px;
+  @include flex-row();
+  padding-bottom: 4*$base;
+}
+.A-image-col {
+cursor: pointer;
+padding: 15px;
+background-color: white;
+border: 1px solid white;
+@include breakpoint(1px,989px) {
+  @include flex-gtr-col(2,$base);
+}
+@include breakpoint(960px,1199px) {
+  @include flex-gtr-col(3,$base);
+}
+@include breakpoint(1200px) {
+  @include flex-gtr-col(5,$base);
+}
+}
+.A-image-col--highlighted {
+  border: 1px solid $turq;
+}
+
+//////////////////////////////////////////
+ // Standard Big Button
+ //////////////////////////////////////////
+.A-btn--add {
+  display: block;
+  width: 100%;
+  @include form-btn($green);
+}
+.A-btn--update {
+  display: block;
+  width: 100%;
+  @include form-btn($turq);
+}
+.A-btn--disabled {
+  display: block;
+  width: 100%;
+  @include form-btn($label-grey);
+}
+//////////////////////////////////////////
+// STANDARD CONTENT-LIST
+//////////////////////////////////////////
+.A-content-list {
+  list-style-type: none;
+}
+//////////////////////////////////////////
+// Radiobutton
+//////////////////////////////////////////
+.A-col--radiobtn {
+  height: 40px;
+  width: 80px;
+  // border-radius: 20px;
+  border: 1px solid white;
+  margin-bottom: $base;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: all .2s ease;
+  border-radius: 20px;
+  span {
+    transition: all .2s ease;
+    background-color: white;
+    display: block;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+  }
+  &.is-active {
+    background-color: $green;
+    span {
+      border: 2px solid $green;
+      transform: translateX(0);
+    }
+  }
+  &.not-active {
+    background-color: $red;
+    span {
+      border: 2px solid $red;
+      transform: translateX(40px);
+    }
+  }
+}

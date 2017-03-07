@@ -13,6 +13,7 @@ coverage
 build
 
 # Uploads image folder
+public/uploads
 uploads
 
 # misc

@@ -1,0 +1,40 @@
+.Portfolio-container {
+  overflow: hidden;
+  color: $p-grey;
+}
+//////////////////////////////////////////
+// Main
+//////////////////////////////////////////
+.Main-container {
+  overflow-x: hidden;
+  transition: all .3s ease;
+}
+.Content-container { // <-- Används på alla sidor förrutom landningssida eftersom den har en hero
+  display: flex;
+  min-height: calc(100vh - #{150px});
+  flex-direction: column;
+  padding-top: $base;
+  padding-bottom: 2*$base;
+  p {
+    font-family: sofiaLight;
+  }
+  @include p-content();
+  @include breakpoint(1100px) {
+    padding-top: 5*$base;
+  }
+  section {
+    margin: 0 0 $base 0;
+    &:not([class]) {
+      padding-bottom: 3*$base;
+    }
+  }
+  h1 {
+    // margin: 0;
+    padding-top: 2*$base;
+    // text-align: center;
+    // color: $red;
+  }
+  h1,h2,h3,h4,h5 {
+    margin-top: 0;
+  }
+}

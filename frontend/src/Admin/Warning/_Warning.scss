@@ -1,0 +1,22 @@
+.Warning-container {
+  position: absolute;
+  bottom: 5*$base;
+  background-color: $red;
+  color: white;
+  p {
+    padding: $base;
+  }
+  &:after, &:before {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    border-color: transparent;
+    border-top-color: $red;
+    border-width: $base;
+    margin-left: -$base;
+  }
+}

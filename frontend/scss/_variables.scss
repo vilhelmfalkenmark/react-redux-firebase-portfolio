@@ -1,0 +1,60 @@
+//////////////////////////////////////////
+// Colors
+//////////////////////////////////////////
+$dark-grey: rgb(54,54,54);
+$light-grey: rgb(205,205,205);
+$medium-grey: rgb(102, 102, 102);
+$grey: rgb(115,115,115);
+$red: rgb(215, 62, 59);
+$green: rgb(0,177,106);
+$content-grey: rgb(242, 242, 242);
+$text: rgb(61,61,61);
+$label-grey: rgb(127,127,127);
+$turq: rgb(0,166,191);
+$beige: rgb(227,223,218);
+
+//////////////////////////////////////////
+// Portfolio specific colors
+//////////////////////////////////////////
+$trans-white: rgba(255,255,255,0.95);
+$p-grey: #676d79;
+$pink: #DE6262;
+$yellow: #FFB88C;
+//////////////////////////////////////////
+// MARGINS & OFFSETS
+//////////////////////////////////////////
+$base: 15px;
+//////////////////////////////////////////
+// Admin
+//////////////////////////////////////////
+$max-inner: 560px; // <-- Portfolio
+
+//////////////////////////////////////////
+// Portfolio
+//////////////////////////////////////////
+$p-menuWidth: 300px;
+$p-menuHeight: 66px;  // <-- Höjd på portfoliomeny desktop
+$p-headerCollapse: 1100px;
+$p-max-width: 1140px; // <-- Max width portfolio
+
+// z-indexes
+$p-loaderZ: 99;
+$p-burgerZ: 100;
+
+//////////////////////////////////////////
+// Fonts
+//////////////////////////////////////////
+
+
+@font-face {
+    font-family: sofiaRegular;
+    src: url("../assets/fonts/sofia-regular.ttf");
+}
+@font-face {
+    font-family: sofiaMedium;
+    src: url("../assets/fonts/sofia-medium.ttf");
+}
+ @font-face {
+   font-family: sofiaLight;
+   src: url("../assets/fonts/sofia-light.ttf");
+ }

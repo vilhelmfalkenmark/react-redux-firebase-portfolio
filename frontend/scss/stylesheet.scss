@@ -1,0 +1,56 @@
+/////////////////////////////////////////////
+// BASE SCSS
+/////////////////////////////////////////////
+@import "normalize";
+@import "variables";
+@import "mixins";
+@import "breakpoints";
+@import "grid";
+@import "forms";
+@import "base";
+@import "utils";
+@import "icons";
+
+//////////////////////////////////////////
+// FLATICON
+//////////////////////////////////////////
+@import "../assets/fonts/icon-font/flaticon.css";
+
+/////////////////////////////////////////////
+// ADMIN COMPONENTS
+/////////////////////////////////////////////
+@import "../src/Admin/Main";
+@import "../src/Admin/Menu/Menu";
+@import "../src/Admin/Articles/Articles";
+@import "../src/Admin/Categorys/Categorys";
+@import "../src/Admin/Skills/Skills";
+@import "../src/Admin/Images/Images";
+@import "../src/Admin/Portfolio/Portfolio";
+@import "../src/Admin/Login/Login";
+@import "../src/Admin/Warning/Warning";
+@import "../src/Admin/RichEditor/RichEditor";
+@import "../src/Admin/Updated/Updated";
+@import "../src/Admin/Comments/Comments";
+
+/////////////////////////////////////////////
+// PORTFOLIO COMPONENTS
+/////////////////////////////////////////////
+@import "../src/Portfolio/Main";
+@import "../src/Portfolio/Header/Header";
+@import "../src/Portfolio/Landing/Landing";
+@import "../src/Portfolio/Particles/Particles";
+@import "../src/Portfolio/Footer/Footer";
+@import "../src/Portfolio/Articles/Articles";
+@import "../src/Portfolio/Portfolio/Portfolio";
+@import "../src/Portfolio/Skills/Skills";
+@import "../src/Portfolio/Experience/Experience";
+@import "../src/Portfolio/Word/Word";
+@import "../src/Portfolio/Comment/Comment";
+@import "../src/Portfolio/404/NotFound";
+
+//////////////////////////////////////////
+// GLOBALS
+//////////////////////////////////////////
+@import "../src/GlobalComponents/Burger/Burger";
+@import "../src/GlobalComponents/Loader/Loader";
+@import "../src/GlobalComponents/Modal/Modal";

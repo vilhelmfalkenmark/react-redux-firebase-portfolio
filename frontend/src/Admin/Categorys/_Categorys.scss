@@ -1,0 +1,22 @@
+.Categorys-toggle-btn {
+  @include form-btn($turq);
+  margin-left: 4*$base;
+  margin-bottom: 15px;
+}
+
+.Categorys {
+  background-color: $content-grey;
+  margin-left: 4*$base;
+
+}
+.Categorys--closed {
+  display: none;
+}
+.Categorys--open {
+  display: block;
+}
+.Categorys-inner {
+  width: calc(100% - #{2*$base});
+  padding-bottom: 2*$base;
+  margin: 0 auto;
+}

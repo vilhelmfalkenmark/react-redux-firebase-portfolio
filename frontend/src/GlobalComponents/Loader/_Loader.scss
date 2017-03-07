@@ -1,0 +1,81 @@
+$menuHeightDesk: 66px;
+$loaderColor: $pink;
+
+.Loader-outer {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  @include breakpoint($p-headerCollapse) {
+    top: $menuHeightDesk;
+    height: calc(100% - #{$menuHeightDesk});
+  }
+  @include flex-position(center);
+  background-color: $content-grey;
+  z-index: $p-loaderZ; 
+}
+.Loader-inner {
+  h3 {
+    color: $loaderColor;
+  }
+}
+.Loader-folding-cube {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  transform: rotateZ(45deg);
+  margin: 0 auto;
+}
+
+.Loader-folding-cube .Loader-cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  transform: scale(1.1);
+}
+.Loader-folding-cube .Loader-cube:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $loaderColor;
+  animation: sk-foldCubeAngle 2.4s infinite linear both;
+  transform-origin: 100% 100%;
+}
+.Loader-folding-cube .Loader-cube2 {
+          transform: scale(1.1) rotateZ(90deg);
+}
+.Loader-folding-cube .Loader-cube3 {
+          transform: scale(1.1) rotateZ(180deg);
+}
+.Loader-folding-cube .Loader-cube4 {
+          transform: scale(1.1) rotateZ(270deg);
+}
+.Loader-folding-cube .Loader-cube2:before {
+          animation-delay: 0.3s;
+}
+.Loader-folding-cube .Loader-cube3:before {
+          animation-delay: 0.6s;
+}
+.Loader-folding-cube .Loader-cube4:before {
+          animation-delay: 0.9s;
+}
+
+@keyframes sk-foldCubeAngle {
+  0%, 10% {
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  } 25%, 75% {
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+  } 90%, 100% {
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+  }
+}

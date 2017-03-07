@@ -1,0 +1,85 @@
+.Portfolio-row {
+  @include flex-row();
+  > div {
+    @include breakpoint(1px, 867px) {
+      @include flex-gtr-col(1,2*$base);
+    }
+    @include breakpoint(868px) {
+      @include flex-gtr-col(2,4*$base);
+      margin-top: 0;
+    }
+  }
+  // Varannan grejen
+  @include breakpoint(868px) {
+  &:nth-of-type(even) {
+    .Portfolio-col-left {
+      order: 2;
+    }
+    .Portfolio-col-right {
+      order: 1;
+    }
+  }
+  }
+}
+//////////////////////////////////////////
+// VÄNSTER DATOR ETC.
+//////////////////////////////////////////
+.Portfolio-col-left {
+  @include flex-position(center);
+}
+.Portfolio-computer {
+  background:  url("../assets/images/devices/macbook-flat.png") no-repeat center center;
+  background-size: contain;
+  height: 300px;
+  width: 100%;
+  cursor: pointer;
+  @include flex-position(center);
+  transition: all 0.3s ease;
+  img {
+    border-radius: 2px;
+    margin-top: -3%;
+    width: 76%;
+    display: block;
+    max-width: 400px;
+  }
+
+}
+//////////////////////////////////////////
+// HÖGER INFO
+//////////////////////////////////////////
+.Portfolio-col-right {
+  background-color: white;
+}
+.Portfolio-info {
+  padding: 2*$base;
+  h4 {
+    margin-bottom: 10px;
+  }
+}
+.Portfolio-skills {
+  margin-bottom: $base*2;
+}
+.Portfolio-skill {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: $base/3;
+  margin-right: $base/3;
+}
+.Portfolio-link {
+  text-align: center;
+  a {
+    display: inline-block;
+    color: $text;
+    @include underline($green);
+    position: relative;
+    span {
+      padding-right: 2*$base;
+    }
+    i {
+      position: absolute;
+      right: 0;
+      top: 1px;
+    }
+  }
+
+}

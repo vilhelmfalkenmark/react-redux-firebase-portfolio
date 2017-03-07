@@ -1,0 +1,72 @@
+  $burger-thick: 3px;
+  $burger-color: $medium-grey;
+  $burger-background: $content-grey;
+
+
+  .Burger-container {
+      z-index: $p-burgerZ;
+      width: 40px;
+      height: 40px;
+      top: $base;
+      right: $base;
+      position: fixed;
+      // background-color: $turq;
+      background-color: $burger-background;
+      cursor: pointer;
+      perspective: 40px;
+  }
+  .Burger-inner {
+      transform: translate3d(0,0,0);
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease-out;
+      transform: translate3d(0,0,0);
+  }
+  .Burger {
+      position: absolute;
+      height: $burger-thick;
+      top: 19px;
+      width: 80%;
+      right: 10%;
+      background-color: $burger-color;
+      transition: all 0.1s ease-in;
+      &:before {
+        background-color: $burger-color;
+          position: absolute;
+          content: "";
+          height: $burger-thick;
+          width: 100%;
+          right: 0;
+          top: -11px;
+          transition: transform 0.6s cubic-bezier(0.6,0,.4,1);
+      }
+      &:after {
+        background-color: $burger-color;
+          position: absolute;
+          content: "";
+          height: $burger-thick;
+          width: 100%;
+          right: 0;
+          top: 11px;
+          transition: transform 0.6s cubic-bezier(0.6,0,.4,1);
+      }
+  }
+  /////////////////////////////////////////////
+  // OPEN STATE
+  /////////////////////////////////////////////
+  .Burger-container.is-open {
+      .Burger-inner {
+          transform: rotateY(0) rotateX(180deg);
+      }
+      .Burger {
+          background-color: $burger-background;
+      }
+      .Burger:before {
+          opacity: 1;
+          transform: translateY(10px) translateX(0px) rotate(-45deg);
+      }
+      .Burger:after {
+          opacity: 1;
+          transform: translateY(-12px) translateX(0px) rotate(45deg);
+      }
+  }

@@ -1,0 +1,309 @@
+//////////////////////////////////////////
+// Standard button for forms
+//////////////////////////////////////////
+@mixin form-btn($color) {
+padding: $base;
+display: block;
+color: white;
+background-color: $color;
+border: 1px solid $color;
+border-radius: 0;
+cursor: pointer;
+outline: 0;
+transition: all .2s ease;
+&:hover {
+  background-color: white;
+  color: $color;
+  }
+}
+@mixin flat-btn($color, $icon: null) {
+  padding: 10px 0;
+  display: block;
+  color: white;
+  background-color: $color;
+  border: 2px solid $color;
+  cursor: pointer;
+  outline: 0;
+  transition: all .2s ease;
+  text-align: center;
+  span {
+    padding-left: 15px;
+    position: relative;
+    display: inline-block;
+    &:before {
+        left: -7px;
+        top: 1px;
+        position: absolute;
+        font-family: Flaticon;
+        content: $icon;
+        font-size: 14px;
+        color: inherit;
+        margin-left: 0;
+      }
+  }
+    &:hover {
+      background-color: white;
+      color: $color;
+    }
+}
+
+@mixin cross-btn($color, $icon) {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid $color;
+  background-color: $color;
+  color: white;
+  outline: 0;
+  cursor: pointer;
+  transition: all .2s ease;
+  position: relative;
+  &:before {
+    left: 0;
+    right: 0;
+    top: calc(50% - 10px);
+    position: absolute;
+    font-family: Flaticon;
+    content: $icon;
+    font-size: 20px;
+    color: inherit;
+    margin-left: 0;
+  }
+  &:hover {
+    background-color: white;
+    color: $color;
+  }
+}
+//////////////////////////////////////////////
+// Round button, exempelvis i artikel teasers
+/////////////////////////////////////////////
+@mixin round-btn($color) {
+  min-width: 100%;
+  text-align: center;
+  margin: $base/2 0;
+  color: $color;
+  padding: 15px 35px;
+  display: inline-block;
+  border-radius: 50px;
+  border: 1px solid $color;
+  text-decoration: none;
+  transition: all .2s ease;
+  &:hover {
+    background-color: $color;
+    color: white;
+  }
+}
+//////////////////////////////////////////////
+// Card
+/////////////////////////////////////////////
+@mixin card() {
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,.09);
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  background-color: white;
+}
+//////////////////////////////////////////
+// Gradient background
+//////////////////////////////////////////
+@mixin gradient-bg($direction, $color1,$color2) {
+  background-color: $color1;
+  background: linear-gradient(to $direction, $color1 , $color2);
+}
+
+//////////////////////////////////////////////
+// shadow button
+/////////////////////////////////////////////
+@mixin shadow-btn($color) {
+  // @include gradient-bg(right,$color,lighten($color,4%));
+  background-color: $color;
+  text-align: center;
+  padding: 5px $base;
+  text-decoration: none;
+  transition: all .2s ease;
+  position: relative;
+  &:after {
+    transition: all .1s ease;
+    content: "";
+    background-image: url("../assets/images/shadows/shadow-bottom.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 90%;
+    height: 30px;
+    width: 100%;
+    bottom: -30px;
+    position: absolute;
+  }
+  &:hover {
+//    background-color: lighten($color,5%);
+    // &:after {
+    //   height: 50px;
+    //   bottom: -50px;
+    //   background-size: 100%;
+    //
+    // }
+
+  }
+}
+//////////////////////////////////////////////
+// Underline links animation
+/////////////////////////////////////////////
+@mixin underline($color: null) {
+  transition: all 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  &:after  {
+    bottom: -1px;
+    backface-visibility: hidden;
+    border: 1px solid rgba($color, 0);
+    content: " ";
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    transition: all 280ms ease-in-out;
+    width: 0;
+  }
+  &:hover {
+    color: $color;
+    &:after {
+    backface-visibility: hidden;
+    border-color: $color;
+    transition: width 350ms ease-in-out;
+    width: 100%;
+  }
+  }
+}
+//////////////////////////////////////////
+// Portfolio content container
+//////////////////////////////////////////
+@mixin p-content() {
+  padding-left: $base;
+  padding-right: $base;
+  width: 100%;
+  max-width: $p-max-width;
+  margin: 0 auto;
+}
+//////////////////////////////////////////
+// Cirkel pulse
+//////////////////////////////////////////
+@mixin pulse($color,$scale,$borderWidth) {
+position: relative;
+display: block;
+&:after {
+  content: "";
+  border: $borderWidth solid $color;
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: none;
+  transition-property: all;
+  transition-duration: 275ms;
+  transition-timing-function: cubic-bezier(0.53,-0.67,0.73,0.74);
+}
+&:hover {
+  &:after {
+    opacity: 1;
+    transform: scale($scale);
+    transition-timing-function: cubic-bezier(0.37,0.74,0.15,1.65);
+  }
+}
+}
+//////////////////////////////////////////
+// SIDE ARROW
+//////////////////////////////////////////
+@mixin side-arrow($direction,$color,$size) {
+  position: relative;
+  &:after {
+  	top: 50%;
+  	border: solid transparent;
+  	content: " ";
+  	height: 0;
+  	width: 0;
+  	position: absolute;
+  	pointer-events: none;
+  	border-color: rgba(136, 183, 213, 0);
+  	border-width: $size;
+  	margin-top: -$size;
+    @if ($direction == left) {
+      right: 100%;
+      border-right-color: $color;
+    } @else if ($direction == right) {
+      left: 100%;
+      border-left-color: $color;
+    }
+  }
+}
+//////////////////////////////////////////
+// RIBBON
+//////////////////////////////////////////
+@mixin ribbon($color: #e74c3c, $textColor: white, $size: 30px) {
+
+      display: inline-block;
+      width: 80%;
+      span {
+        position: relative;
+        display: block;
+        background: $color;
+        color: $textColor;
+        text-align: center;
+        height: $size*2;
+        z-index: 3;
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          display: block;
+          bottom: -$size/2;
+          border: $size solid darken($color,5%);
+          -webkit-transform: translateZ(-1px);
+        }
+        &:before {
+          left: -$size*2 + $size/2;
+          border-left-color: transparent;
+        }
+        &:after {
+          right: -$size*2 + $size/2;
+          border-right-color: transparent;
+        }
+        & span:before,
+        & span:after {
+          content: "";
+          position: absolute;
+          display: block;
+          border-style: solid;
+          bottom: -$size/2;
+          border-color: darken($color, 20%) transparent transparent transparent;
+        }
+        & span:before {
+          left: 0;
+          border-width: $size/2 0 0 $size/2;
+        }
+        & span:after {
+          right: 0;
+          border-width: $size/2 $size/2 0 0;
+        }
+      }
+      // Z-index
+      & > span {
+        &:before,&:after {
+          z-index: -1;
+        }
+        > span {
+          &:before,&:after {
+            z-index: 1;
+          }
+        }
+      }
+	}
+//////////////////////////////////////////
+// Thin-content
+//////////////////////////////////////////
+@mixin thinContent() {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 760px;
+  width: 100%;
+}

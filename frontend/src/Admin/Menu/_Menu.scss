@@ -1,0 +1,107 @@
+$menu-width-small: 280px;
+$menu-width-medium: 200px;
+$menu-width-large: 280px;
+/////////////////////////////////////////////
+// RESPONSIVITET MENY OCH SIDA
+/////////////////////////////////////////////
+@include breakpoint(1px, 767px) {
+  .A-Menu-container {
+    width: $menu-width-small;
+    transform: translateX(-$menu-width-small);
+    li {
+      font-size: 16px;
+    }
+    &.menu-open {
+      transform: translateX(0);
+    }
+  }
+  .A-Content-container {
+    transform: translateX(0);
+    &.menu-open {
+      transform: translateX($menu-width-small);
+    }
+  }
+}
+@include breakpoint(768px) {
+  .A-Container {
+    .Burger-container {
+      display: none;
+    }
+  }
+  .A-Menu-container {
+    width: $menu-width-medium;
+    li {
+      font-size: 16px;
+    }
+  }
+  .A-Content-container {
+    width: calc(100% - #{$menu-width-medium});
+    margin-left: $menu-width-medium;
+  }
+}
+@include breakpoint(1100px) {
+  .A-Menu-container {
+    width: $menu-width-large;
+    li {
+      font-size: 16px;
+    }
+  }
+  .A-Content-container {
+    width: calc(100% - #{$menu-width-large});
+    margin-left: $menu-width-large;
+  }
+}
+/////////////////////////////////////////////
+// GENERELLA PRYLAR FÖR MENY & SIDA
+/////////////////////////////////////////////
+.A-Menu-container { //  MENY-CONTAINER
+  background-color: $medium-grey;
+  color: white;
+  position: fixed;
+  height: 100%;
+  transition: all .3s ease;
+}
+
+.A-Menu {
+  padding: 0;
+  margin: 0;
+}
+.A-Menu-list {
+  list-style-type: none;
+  li {
+    // font-size: 20px;
+  }
+  i {
+    padding: 0 $base;
+  }
+  a {
+    display: block;
+    padding: $base;
+    color: white;
+    text-decoration: none;
+    transition: all .2s ease;
+    border-bottom: 1px solid $label-grey;
+    &:hover {
+      background-color: $label-grey;
+    }
+  }
+}
+.A-Menu-logout-btn {
+  cursor: pointer;
+  &:hover {
+    // text-decoration: underline;
+  }
+}
+/////////////////////////////////////////////
+// Active link state
+/////////////////////////////////////////////
+.A-Menu-list {
+  li a {
+    &.is-active {
+      background-color: $turq;
+      &:hover {
+        background-color: darken($turq,5%);
+      }
+    }
+  }
+}

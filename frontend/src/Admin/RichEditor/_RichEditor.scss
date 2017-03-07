@@ -1,0 +1,44 @@
+.RichEditor-root {
+  background-color: white;
+  border: 2px solid $light-grey;
+}
+.RichEditor-styleButton {
+  display: inline-block;
+  padding: $base/2;
+  color: $label-grey;
+  cursor: pointer;
+}
+.RichEditor-activeButton {
+  color: $red;
+}
+.RichEditor-editor {
+  border-top: 1px solid $light-grey;
+  padding-top: $base;
+  min-height: 200px;
+  max-height: 700px;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  padding-left: $base;
+  ul, ol {
+    padding-left: 20px;
+  }
+  *  {
+    text-align: left;
+  }
+  [data-block="true"] {
+    margin: $base/2 0;
+  }
+
+  pre {
+    background-color: $content-grey;
+    padding: $base/5 0;
+
+  }
+  blockquote {
+    font-size: 22px;
+    padding: $base 0;
+    background-color: $content-grey;
+
+  }
+
+}

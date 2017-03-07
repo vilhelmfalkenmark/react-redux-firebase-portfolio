@@ -1,0 +1,8 @@
+.A-col--wide-comment {
+  // background-color: yellow !important;
+  .Warning-container {
+    &:before, &:after {
+      left: 75%;
+    }
+  }
+}

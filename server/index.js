@@ -16,7 +16,7 @@ const fs = require('fs');
 //   rootFolder = "./public";
 // }
 // let rootFolder = "../build";
-let rootFolder = './react-redux-firebase-portfolio/build';
+let rootFolder = './frontend/build';
 
 const router = express.Router();
 router.use(function(req, res, next) {
@@ -25,10 +25,10 @@ router.use(function(req, res, next) {
 app.use('/api', router);
 
 /////////////// ENDAST FÖR PRODUKTION ///////////////
-app.use(express.static(path.resolve(__dirname, '../react-redux-firebase-portfolio/build')));
+app.use(express.static(path.resolve(__dirname, '../frontend/build')));
 
 app.get('*', function (req, res) {
- res.sendFile(path.resolve(__dirname, '../react-redux-firebase-portfolio/build', 'index.html'));
+ res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
 });
 
 //////////////////////////////////////////

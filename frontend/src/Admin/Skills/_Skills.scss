@@ -1,0 +1,128 @@
+//////////////////////////////////////////
+// Range input
+//////////////////////////////////////////
+input[type=range]{
+    -webkit-appearance: none;
+    border: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    // width: 300px;
+    height: 5px;
+    background: $light-grey;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: $turq;
+    margin-top: -11px;
+}
+input[type=range]:focus {
+    outline: none;
+    border: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: $label-grey;
+}
+
+.A-skills-color-cols {
+  @include flex-row();
+}
+.A-skills-color-col {
+  @include flex-gtr-col(2,$base);
+  margin-top: 0;
+  .sketch-picker {
+  }
+}
+.A-skill-preview {
+  min-height: 45px;
+  text-align: center;
+  padding: 15px 60px;
+}
+.A-col--skill-bar-input {
+  min-height: 45px;
+  text-align: center;
+  padding: 15px 0;
+  width: 100%;
+  margin-bottom: $base;
+  border: none !important;
+  &:active {
+    border: none;
+  }
+}
+//////////////////////////////////////////
+// Skills kolumner
+//////////////////////////////////////////
+.A-col--skill {
+  @include breakpoint(1px, 959px) {
+    @include flex-gtr-col(2,$base);
+  }
+  @include breakpoint(960px, 1249px) {
+    @include flex-gtr-col(3, $base);
+  }
+  @include breakpoint(1250px) {
+    @include flex-gtr-col(4, $base);
+  }
+  position: relative;
+  padding: $base $base 12*$base $base;
+  background-color: $content-grey;
+}
+
+//////////////////////////////////////////
+// Skill actions
+//////////////////////////////////////////
+.A-col-actions--skill {
+  @include flex-row();
+  .A-col--skill-edit, .A-col--skill-delete, .A-col--skill-update {
+    @include flex-gtr-col(1,$base);
+  }
+}
+.A-col--skill-edit {
+  @include flex-row();
+  button {
+    @include flex-gtr-col(2,$base);
+  }
+}
+.Skill-btn--inc {
+  @include flat-btn($green);
+}
+.Skill-btn--dec {
+  @include flat-btn($turq);
+}
+//////////////////////////////////////////
+// LISTA
+//////////////////////////////////////////
+.A-col--skill-list {
+  ul {
+    color: $label-grey;
+    padding-left: 20px;
+  }
+  li {
+    margin-bottom: $base;
+  }
+}
+
+
+//////////////////////////////////////////
+// Content skills som kan lyftas in
+// lite här och var
+//////////////////////////////////////////
+.A-content-skills-cols {
+  margin-left: -7.5px;
+}
+.A-content-skill {
+  display: inline-block;
+  padding: 15px;
+  margin: $base $base/2 0 $base/2;
+  cursor: pointer;
+}
+.A-content-skill--selected {
+  border-bottom: 1px solid red;
+}

@@ -1,0 +1,25 @@
+.u-Delete-btn {
+  @include form-btn($red)
+}
+.u-Add-btn {
+  @include form-btn($green)
+}
+.u-Italic {
+  font-style: italic;
+}
+.u-Grey {
+  color: $label-grey;
+}
+.u-Dashed-bottom {
+  padding-bottom: $base;
+  border-bottom: 2px dashed $p-grey;
+}
+.u-Center {
+  text-align: center;
+}
+.u-Red {
+  color: $red;
+}
+.u-Green {
+  color: $green;
+}

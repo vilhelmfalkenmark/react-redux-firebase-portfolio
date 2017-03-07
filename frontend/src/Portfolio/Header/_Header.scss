@@ -1,0 +1,185 @@
+//////////////////////////////////////////
+// Meny & Burger
+//////////////////////////////////////////
+
+$menuItemOffset: -60px;
+$menuItemOpacity: 0.5;
+
+.Portfolio-container {
+  .Burger-container {
+    display: block;
+    @include breakpoint($p-headerCollapse) {
+      display: none;
+    }
+  }
+}
+.Header {
+  position: fixed;
+  z-index: 99;
+  width: $p-menuWidth;
+  height: 100%;
+  background-color: white;
+  transform: translateX(-$p-menuWidth);
+  transition: all .3s ease;
+  box-shadow: inset -5px 0px 15px -11px rgba(0, 0, 0, 0.58);
+  @include flex-row();
+  @include breakpoint($p-headerCollapse) {
+    box-shadow: -1px -4px 15px 0px rgba(0,0,0,0.58);
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transform: translateX(0);
+    height: auto;
+    }
+}
+
+.Menu {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  position: relative;
+  @include breakpoint(1px, #{$p-headerCollapse}-1) {
+    @include flex-position(center);
+    .Header-logo {
+      position: absolute;
+      top: 10px;
+      font-size: 20px;
+    }
+  }
+  @include breakpoint($p-headerCollapse) {
+    flex-flow: row wrap;
+    justify-content: space-between;
+    .Header-logo {
+      margin-right: 2*$base;
+
+    }
+  }
+}
+.Menu-list {
+  list-style-type: none;
+  @include breakpoint(1px, #{$p-headerCollapse}-1) {
+    margin: 0 auto;
+    padding: 0;
+    li {
+      // transition: all .4s ease;
+      // transform: translateX($menuItemOffset);
+    }
+  }
+  @include breakpoint($p-headerCollapse) {
+    @include flex-row();
+  }
+  li {
+    @include breakpoint($p-headerCollapse) {
+      margin-right: $base/2;
+      min-width: 140px;
+      @include flex-position(center);
+    }
+
+    a {
+      padding: 20px;
+      text-decoration: none;
+      @include underline($turq);
+      @include breakpoint(1px, #{$p-headerCollapse}-1) {
+        display: inline-block;
+      }
+      @include breakpoint($p-headerCollapse) {
+        margin-right: $base/2;
+        padding: 20px 0;
+        text-align: center;
+      }
+      display: block;
+      color: $medium-grey;
+      &.is-active {
+        color: $turq;
+      }
+    }
+  }
+}
+
+
+@keyframes menuItemIn {
+  from {
+    transform: translateX($menuItemOffset);
+    opacity: $menuItemOpacity;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes menuItemOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX($menuItemOffset);
+    opacity: $menuItemOpacity;
+  }
+}
+
+// @mixin animateDelay($time) {
+//   animation-delay: $time !important;
+// }
+// @for $i from 1 to 6 {
+//   .Menu-list li:nth-of-type(#{$i})  {
+//     @include animateDelay($i * 60ms);
+//   }
+// }
+
+// Open burger telefonläge
+@include breakpoint(1px,#{$p-headerCollapse - 1}) {
+
+  .Menu-list {
+    li {
+      // opacity: $menuItemOpacity;
+      }
+    }
+  }
+
+  .Portfolio-container.menu-open {
+    .Header {
+      transform: translateX(0);
+    }
+    .Menu-list {
+      li {
+        // animation: menuItemIn .2s ease-out forwards;
+      }
+    }
+    .Main-container {
+      transform: translateX($p-menuWidth);
+    }
+    .Footer {
+      transform: translateX($p-menuWidth);
+    }
+  }
+  .Portfolio-container:not(.menu-open) {
+    .Menu-list {
+      li {
+        // animation: menuItemOut .2s ease forwards;
+      }
+    }
+  }
+//////////////////////////////////////////
+// LOGO
+//////////////////////////////////////////
+
+
+$header-size: 55px;
+$header-height: 31.75px;
+$header-margin: 15.88px;
+$header-border: 27.5px;
+.Header-logo {
+  cursor: pointer;
+  margin-top: 5px;
+  height: $header-size;
+  width: $header-size;
+  background: url("../assets/svg/shield.svg") no-repeat center center;
+  background-size: 45px;
+  @include flex-position(center);
+  color: white;
+  text-decoration: none;
+  font-size: 26px;
+  }

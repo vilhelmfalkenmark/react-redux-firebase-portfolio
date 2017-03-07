@@ -1,0 +1,245 @@
+$footer-color: white;
+$tilt-size: 75px;
+$tilt-desk: 75px;
+$tilt-mobile: 35px;
+.Footer {
+  transition: all .3s ease;
+  position: relative;
+
+
+
+  &:before {
+    content: "";
+    position: absolute;
+    background-repeat: no-repeat;
+    left: 0;
+    right: 0;
+  }
+  @include breakpoint(1px, #{$p-headerCollapse - 1}) {
+    &:before {
+    background-size: 100% $tilt-mobile;
+    height: $tilt-mobile;
+  }
+  }
+  @include breakpoint($p-headerCollapse) {
+    &:before {
+    background-size: 100% $tilt-desk;
+    height: $tilt-desk;
+  }
+  }
+  a {
+    color: inherit;
+    // transition: all .2s ease;
+  }
+}
+.Footer-inner {
+  @include p-content();
+}
+.Footer-backtotop {
+  text-align: center;
+  @include breakpoint($p-headerCollapse) {
+    padding-bottom: 2*$base;
+  }
+  span {
+    display: inline-block;
+    cursor: pointer;
+    i {
+      display: inline-block;
+      margin-right: $base;
+      transform: rotate(270deg);
+    }
+  }
+}
+.Footer-columns {
+  @include flex-row();
+  @include breakpoint(1px, 767px) {
+    > div {
+      @include flex-gtr-col(1,2*$base);
+    }
+  }
+  @include breakpoint(768px) {
+    > div {
+      @include flex-gtr-col(2,0px);
+    }
+  }
+}
+
+//////////////////////////////////////////
+// Footer left
+//////////////////////////////////////////
+.Footer-left {
+  @include flex-position(center);
+  > div {
+    width: 100%;
+  }
+  ul {
+    list-style-type: none;
+    li {
+      margin-bottom: $base;
+      a {
+        display: inline-block;
+        i {
+          padding-right: $base/2;
+        }
+      }
+    }
+  }
+}
+// SOCIAL MEDIA ICONS
+.Footer-icons {
+  @include flex-row();
+  a {
+    font-size: 40px;
+    text-decoration: none;
+    @include flex-gtr-col(5,$base);
+  }
+}
+.Footer-icon {
+  height: 40px;
+  width: 40px;
+  background-size: contain;
+}
+//////////////////////////////////////////
+// Footer left
+//////////////////////////////////////////
+.Footer-right {
+  @include breakpoint(1100px) {
+    padding: 0 2*$base;
+  }
+  p {
+    margin: 0;
+  }
+}
+.Footer-face {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background: url("../assets/images/face/ville.jpg");
+  background-size: cover;
+  margin: 0 auto $base auto;
+  @include breakpoint(1100px) {
+    margin: 0 auto 30px auto;
+  }
+}
+
+
+
+//////////////////////////////////////////
+// Footer Copy
+//////////////////////////////////////////
+
+.Footer-copy {
+  text-align: center;
+  padding: 2*$base 0 $base 0  ;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+//////////////////////////////////////////
+// Färglad version (Inte landningssida)
+//////////////////////////////////////////
+.Footer--color {
+  color: $footer-color;
+  &:before {
+    background-image: url("../assets/svg/tilt-white.svg");
+    top: 0;
+  }
+  .Footer-inner {
+    padding: 4*$base $base 0 $base;
+  }
+  .Footer-backtotop {
+    @include breakpoint($p-headerCollapse) {
+      margin-top: $base;
+    }
+  }
+  @include gradient-bg(right, $pink, $yellow);
+  .Footer-backtotop span, .Footer-left li a {
+    @include underline($content-grey);
+  }
+  .Footer-icons {
+    a {
+      color: $footer-color;
+    }
+  }
+  .Footer-left a {
+    color: $footer-color;
+  }
+  .Footer-icon {
+    @include pulse(white,1.25,1px);
+  }
+  .Footer-icon--instagram {
+    background-image: url("../assets/svg/footer-logos/white/instagram-logo.svg");
+  }
+  .Footer-icon--facebook {
+    background-image: url("../assets/svg/footer-logos/white/facebook-logo.svg");
+  }
+  .Footer-icon--spotify {
+    background-image: url("../assets/svg/footer-logos/white/spotify-logo.svg");
+  }
+  .Footer-icon--github {
+    background-image: url("../assets/svg/footer-logos/white/github-logo.svg");
+  }
+  .Footer-icon--linkedin {
+    background-image: url("../assets/svg/footer-logos/white/linkedin-logo.svg");
+  }
+}
+
+//////////////////////////////////////////
+// Vit Version (landningssida)
+//////////////////////////////////////////
+.Footer--white {
+  background-color: white;
+  &:before {
+    background-image: url("../assets/svg/tilt-grey.svg");
+    z-index: 99;
+  }
+  @include breakpoint(1px, #{$p-headerCollapse - 1}) {
+    &:before {
+      top: -$tilt-mobile - $base;
+    }
+  }
+  @include breakpoint($p-headerCollapse) {
+    &:before {
+      top: -$tilt-desk;
+    }
+  }
+  .Footer-backtotop {
+    @include breakpoint(1px, #{$p-headerCollapse - 1}) {
+      margin-top: $base;
+    }
+  }
+
+  .Footer-inner {
+    padding: 0 $base ;
+  }
+
+  .Footer-backtotop span, .Footer-left li a {
+    @include underline($label-grey);
+  }
+  .Footer-icons {
+    a {
+      color: $label-grey;
+    }
+  }
+  .Footer-left a {
+    color: $label-grey;
+  }
+  .Footer-icon {
+    @include pulse($label-grey,1.25,1px);
+  }
+  .Footer-icon--instagram {
+    background-image: url("../assets/svg/footer-logos/grey/instagram-logo.svg");
+  }
+  .Footer-icon--facebook {
+    background-image: url("../assets/svg/footer-logos/grey/facebook-logo.svg");
+  }
+  .Footer-icon--spotify {
+    background-image: url("../assets/svg/footer-logos/grey/spotify-logo.svg");
+  }
+  .Footer-icon--github {
+    background-image: url("../assets/svg/footer-logos/grey/github-logo.svg");
+  }
+  .Footer-icon--linkedin {
+    background-image: url("../assets/svg/footer-logos/grey/linkedin-logo.svg");
+  }
+
+}

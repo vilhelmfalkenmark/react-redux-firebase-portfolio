@@ -1,0 +1,157 @@
+.Experience-row {
+  @include flex-row();
+  position: relative;
+  @include breakpoint(600px) {
+    padding: $base;
+    margin-bottom: 0 !important;
+  }
+
+  h3 {
+    text-align: center;
+  }
+}
+.Experience-card {
+  background-color: $content-grey;
+  padding: $base*2;
+  transition: all .2s ease;
+  @include breakpoint(601px, 1099px) {
+    margin-left: 200px;
+    @include side-arrow(left,$content-grey,$base);
+  }
+  @include breakpoint(1100px) {
+    width: 50%;
+    max-width: 420px;
+  }
+}
+.Experience-period {
+  text-align: center;
+  @include breakpoint(600px) {
+    display: none;
+  }
+}
+.Expierience-line {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  margin: 0 auto;
+  background-color: $pink;
+  width: 4px;
+  height: 100%;
+  overflow: visible;
+  @include breakpoint(1px, 600px) {
+    display: none;
+  }
+  @include breakpoint(601px, 1099px) {
+    left: 100px;
+  }
+  @include breakpoint(1100px) {
+    left: 0;
+    right: 0;
+  }
+}
+$xp-circle: 130px;
+.Experience-circle {
+  position: relative;
+  top: calc(50% - #{$xp-circle/2});
+  z-index: 1;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  text-align: center;
+  width: $xp-circle;
+  height: $xp-circle;
+  background-color: $content-grey;
+  border-radius: 50%;
+  @include flex-position(center);
+  span {
+    font-size: 14px;
+    display: block;
+    // color: white;
+    text-align: center;
+  }
+}
+
+@include breakpoint(1100px) {
+.Experience-row:nth-of-type(odd) {
+  align-items: flex-end;
+  justify-content: flex-end;
+  .Experience-card {
+    opacity: 0;
+    transform: translateX(100%);
+    @include side-arrow(left,$content-grey,$base);
+  }
+}
+.Experience-row:nth-of-type(even) {
+  .Experience-card {
+    opacity: 0;
+    transform: translateX(-100%);
+    @include side-arrow(right,$content-grey,$base);
+  }
+}
+}
+
+.Experience-title {
+  text-align: center;
+  h2 {
+    @include ribbon($red,white,20px);
+    font-size: 16px;
+    line-height: 35px;
+    @include breakpoint(800px) {
+      font-size: 20px;
+      line-height: 35px;
+    }
+  }
+}
+.Experience-link {
+  text-align: center;
+  a {
+    color: $medium-grey;
+    display: inline-block;
+    @include underline($dark-grey);
+  }
+}
+
+//////////////////////////////////////////
+// GLID IN FUNKTIONALITET
+//////////////////////////////////////////
+
+$xp-offset: 100%;
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX($xp-offset);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-$xp-offset);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+$trans-in: cubic-bezier(1,0,.55,.95);
+$trans-out: cubic-bezier(1,-.02,.695,.79);
+
+@include breakpoint(1100px) {
+
+.Experience-row:nth-of-type(odd) {
+  .Experience-card.slide-in {
+    animation: slideInFromRight .5s $trans-in forwards;
+  }
+}
+.Experience-row:nth-of-type(even) {
+
+  .Experience-card.slide-in {
+    animation: slideInFromLeft .5s $trans-in forwards;
+  }
+}
+}

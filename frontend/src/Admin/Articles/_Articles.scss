@@ -1,0 +1,22 @@
+.Articles-container {
+  .A-btn--add, .A-btn--disabled {
+    margin: 0 0 $base 4*$base;
+    width: calc(100% - #{4*$base})
+  }
+  .A-btn--update {
+    margin: 0 0 $base 4*$base;
+    width: calc(100% - #{4*$base})
+  }
+}
+.Article-preview-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 145px;
+}
+
+//////////////////////////////////////////
+ // EDIT ARTICLE PAGE
+ //////////////////////////////////////////
+.Article-edit-image {
+  max-width: 480px;
+}

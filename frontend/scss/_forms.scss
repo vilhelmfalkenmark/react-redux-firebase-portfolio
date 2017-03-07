@@ -1,0 +1,119 @@
+.Form-container {
+  max-width: 390px;
+}
+label {
+    color: $label-grey;
+    display: block;
+    margin-top: $base;
+    margin-bottom: 10px;
+    // font-size: 14px;
+}
+input[type="text"],
+input[type="number"],
+input[type="range"],
+input[type="email"],
+input[type="password"] {
+  display: block;
+  width: 100%;
+  transition: all .2s ease;
+  height: 50px;
+  padding: $base;
+  outline: 0;
+  border: none;
+  + span {
+    display: block;
+    margin-top: -2px;
+    height: 2px;
+    width: 100%;
+    position: relative;
+    background-color: $light-grey;
+    &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: $green;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.2s ease-in-out 0s;
+    }
+  }
+  &:focus {
+    + span:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+  }
+}
+select {
+  display: block;
+  width: 100%;
+  transition: all .2s ease;
+  height: 50px;
+  padding: $base;
+  margin-bottom: 2*$base;
+  outline: 0;
+  border: 1px solid $grey;
+}
+textarea {
+  display: block;
+  width: 100%;
+  transition: all .2s ease;
+  outline: 0;
+  padding: $base;
+  border: 2px solid $light-grey;
+  resize: none;
+  height: 250px;
+  &:focus {
+    border: 2px solid $green;
+  }
+}
+
+
+// .Input-row--input {
+//   position: relative;
+//   height: 75px;
+//   // background-color: blue;
+//   input,span,label {
+//     // position: absolute;
+//     // bottom: 2px;
+//   }
+//   input {
+//     position: absolute;
+//     bottom: 2px;
+//   }
+//   span {
+//     bottom: 0;
+//     position: absolute !important;
+//   }
+//   label {
+//     transition: all .2s ease;
+//     // color: red;
+//     height: 1px;
+//     display: inline;
+//     // transform: translateY(-50%);
+//     margin-top: 0;
+//     top: 50%;
+//     position: absolute;
+//     // height: 14px;
+//   }
+//
+//
+//   // input + span + label {
+//   //   color: red;
+//   //   top: 0px;
+//   //   margin-top: 0;
+//   //   // margin-top: -50px;
+//   // }
+//   input:focus {
+//     + span + label {
+//       top: 0;
+//       transform: translateY(0%);
+//     }
+//   }
+//
+//
+//
+// }

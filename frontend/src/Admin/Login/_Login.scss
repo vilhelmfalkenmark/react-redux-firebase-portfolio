@@ -1,0 +1,17 @@
+.A-Login-container {
+  height: 100vh;
+  @include flex-position(center);
+  background-color: $content-grey;
+}
+.A-Login-inner {
+  background-color: white;
+  padding: 4*$base;
+  label {
+    margin-top: 3*$base;
+  }
+  button {
+    @include form-btn($turq);
+    width: 100%;
+    margin-top: 3*$base;
+  }
+}

@@ -1,0 +1,53 @@
+/////////////////////////////////////////////
+// FLEX ROW
+/////////////////////////////////////////////
+@mixin flex-row() {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+@mixin flex-gtr-col($columns, $gutter) {
+  $percentage: percentage(1/$columns);
+  $width: (($columns - 1)*$gutter)/$columns;
+  flex-basis: calc(#{$percentage} - #{$width});
+  margin-top: $gutter;
+  margin-left: $gutter/2;
+  margin-right: $gutter/2;
+  @if $columns != 1 {
+    &:nth-of-type(#{$columns}n+1) {
+      margin-right: $gutter/2;
+      margin-left: 0;
+    };
+    &:nth-of-type(#{$columns}n+#{$columns}) {
+      margin-left: $gutter/2;
+      margin-right: 0;
+    };
+  } @else if $columns == 1 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+@mixin flex-col($span, $columns, $margin: 0px) {
+  $percentage: percentage($span/$columns);
+  @if $columns != 1 {
+    flex-basis: calc(#{$percentage} - #{$margin});
+  } @else {
+    flex-basis: calc(#{$percentage});
+  }
+}
+
+/////////////////////////////////////////////
+// FLEX POSITION
+/////////////////////////////////////////////
+@mixin flex-position($horizontal, $vertical:null) {
+  @if($vertical) {
+    display: flex;
+    justify-content:$horizontal;
+    align-items: $vertical;
+  } @else {
+    display: flex;
+    justify-content:$horizontal;
+    align-items: center;
+  }
+}

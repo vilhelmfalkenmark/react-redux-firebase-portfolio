@@ -1,0 +1,50 @@
+.Images-form {
+
+.Images-file-btn {
+  @include flat-btn($turq);
+  display: inline-block;
+
+  width: 200px;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+ input {
+   width: inherit;
+   cursor: pointer;
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   opacity: 0;
+ }
+}
+input[type="submit"] {
+
+  margin: $base;
+  @include flat-btn($turq);
+  width: 200px;
+  display: inline-block;
+
+}
+
+}
+
+
+.Images-fetch-btn {
+  @include flat-btn($turq);
+  width: 200px;
+
+}
+
+
+.Images-cols {
+  @include flex-row();
+}
+.Images-col {
+  @include flex-gtr-col(3,$base);
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

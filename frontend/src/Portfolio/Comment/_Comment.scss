@@ -1,0 +1,42 @@
+.Comment-container {
+  margin-top: 4*$base;
+  // width: 100%;
+  // max-width: 560px;
+  @include thinContent();
+
+  input, textarea,button,span {
+    max-width: 560px;
+  }
+  button {
+    margin-top: 2*$base;
+  }
+
+}
+
+.Comment-btn--active {
+  @include form-btn($green);
+  display: block;
+  width: 100%;
+}
+.Comment-btn--passive {
+  @include form-btn($label-grey);
+  display: block;
+  width: 100%;
+}
+.Comment-list {
+  // margin-top: $base;
+  // max-width: 560px;
+}
+.Comment-list-comment {
+  border-bottom: 1px solid $label-grey;
+  h4 {
+    margin-top: $base;
+  }
+}
+
+.Comment-form,.Comment-list-comment {
+  @include card();
+  background-color: lighten($content-grey,4%); 
+  padding: 2*$base;
+  margin-bottom: 2*$base;
+}

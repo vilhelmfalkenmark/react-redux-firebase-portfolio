@@ -1,0 +1,44 @@
+/////////////////////////////////////////////
+//////// RESPONSIVE BREAKPOINTS
+/////////////////////////////////////////////
+$small: 320px;
+$medium: 768px;
+$large: 1024px;
+
+/////////////////////////////////////////////
+// MIN-WIDTHS
+/////////////////////////////////////////////
+@mixin respond-to($breakpoint) {
+
+  @if $breakpoint == "x-small" {
+    @media (min-width: 1px)  {
+      @content;
+    }
+  } @else if $breakpoint == "small" {
+    @media (min-width: $small+1)  {
+      @content;
+    }
+  } @else if $breakpoint == "medium" {
+    @media (min-width: $medium) {
+      @content;
+    }
+  }
+  @else if $breakpoint == "large" {
+    @media (min-width: $large) {
+      @content;
+    }
+  }
+}
+
+@mixin breakpoint($min,$max:null) {
+@if $max {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+@else {
+  @media (min-width: $min)  {
+    @content;
+  }
+}
+}

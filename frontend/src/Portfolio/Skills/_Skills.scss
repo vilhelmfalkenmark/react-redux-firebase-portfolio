@@ -1,0 +1,81 @@
+@keyframes fillCircle {
+  from {
+    stroke-dasharray: 0 100;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@mixin animateDelay($time) {
+  animation-delay: $time;
+}
+@for $i from 1 to 15 {
+  .Skill:nth-of-type(#{$i}) .Skill-circle {
+    @include animateDelay($i * 0.5s);
+  }
+}
+// CSS:EN
+.Skill-list {
+  @include flex-row();
+  list-style-type: none;
+}
+.Skill {
+  @include breakpoint(1px,320px) {
+    @include flex-gtr-col(1,2*$base);
+  }
+  @include breakpoint(321px,699px) {
+    @include flex-gtr-col(2,2*$base);
+  }
+  @include breakpoint(700px,1123px) {
+    @include flex-gtr-col(3,2*$base);
+  }
+  @include breakpoint(1124px) {
+    @include flex-gtr-col(4,2*$base);
+  }
+}
+
+.Skill {
+  h4 {
+    margin-bottom: $base/3;
+  }
+  p {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+
+
+.Skill-pie { // <-- FIGURE ELEMENTET
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  cursor: pointer;
+  @include pulse(darken($content-grey,5%),1.10,3px);
+  @include breakpoint(768px) {
+    width: 150px;
+    height: 150px;
+  }
+  @include breakpoint(768px) {
+    width: 200px;
+    height: 200px;
+  }
+
+  svg {
+    transform: rotate(-90deg);
+    border-radius: 50%;
+    display: block;
+  }
+}
+.Skill-circle {
+  opacity: 0;
+  fill: $content-grey;
+  stroke-width: 32;
+  stroke-dasharray: 0; /* for 75% */
+  animation: fillCircle .7s ease-out forwards;
+}
+.Skill-inner-circle {
+  fill: white;
+  display: none;
+}
