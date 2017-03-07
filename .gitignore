@@ -4,7 +4,6 @@
 node_modules
 
 # Firebase configuration file
-FirebaseConfig.js
 
 # testing
 coverage
@@ -13,7 +12,6 @@ coverage
 build
 
 # Uploads image folder
-uploads
 
 # misc
 .DS_Store
