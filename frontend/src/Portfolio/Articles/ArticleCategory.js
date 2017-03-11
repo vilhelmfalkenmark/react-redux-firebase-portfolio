@@ -67,7 +67,7 @@ class ArticleCategoryContainer extends React.Component {
             <h4>
              {
               articlesByCategory.length > 0 ?
-              `Fler artiklar i kategori ${categoryHeader}` : `Inga fler artiklar finns i den här kategorin.`
+              `Fler artiklar i kategori ${categoryHeader}` : null
              }
             </h4>
             <div className="Articles-teasers">

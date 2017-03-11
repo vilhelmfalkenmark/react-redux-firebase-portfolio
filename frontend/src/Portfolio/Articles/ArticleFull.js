@@ -8,8 +8,11 @@ render(){
     document.title=`${article.title} | Vilhelm Falkenmark`;
     return (
      <article>
+      <header>
        <h1>{article.title}</h1>
-       <h4>Kategori: {category}</h4>
+       <label>Kategori: {category}</label>
+       <label >Skrivet: {article.date}</label>
+      </header>
        {
         article.image ? <img src={process.env.PUBLIC_URL+"/uploads/"+article.image} alt={process.env.PUBLIC_URL+article.image} /> : null
        }

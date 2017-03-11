@@ -26,8 +26,10 @@ class Login extends Component {
       <form className="A-Login-form" action="/" onSubmit={(e)=>this.logIn(e)}>
        <label>Användarnamn/E-postadress</label>
        <input type="email" value={email} onChange={(e) => this.setState({email: e.target.value}) } required/>
+       <span></span>
        <label>Lösenord</label>
        <input type="password" value={password} onChange={(e) => this.setState({password: e.target.value})} required/>
+       <span></span>
        <button type="submit">Logga in</button>
       </form>
       </div>
@@ -35,7 +37,6 @@ class Login extends Component {
     )
   }
 }
-
 // export default Login;
 const mapStateToProps = (state) => {
   return {

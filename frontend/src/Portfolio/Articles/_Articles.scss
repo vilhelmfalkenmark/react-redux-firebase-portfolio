@@ -1,206 +1,240 @@
 article {
-  @include thinContent();
+    @include thinContent();
 }
-
 //////////////////////////////////////////
 // Artikel teasers
 //////////////////////////////////////////
+
 .Articles-teasers {
-@include flex-row();
+    @include flex-row();
 }
+
 .Articles-teaser {
-  transition: all .2s ease;
-  @include breakpoint(1px,767px) {
-    @include flex-gtr-col(1,$base);
-  }
-  @include breakpoint(768px) {
-    @include flex-gtr-col(3,$base);
-  }
-  position: relative;
-  margin-top: 0;
-  text-decoration: none;
-  color: #676d79;
-  @include card();
-  overflow: hidden;
-  cursor: pointer;
-  .Article-teaser-border {
-    display: block;
-    margin-top: -2px;
-    height: 2px;
-    width: 100%;
-    bottom: 0;
-    position: absolute;
-    background-color: $light-grey;
-    &:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    background-color: $label-grey;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease;
+    @include breakpoint(1px,767px) {
+         @include flex-gtr-col(1,$base);
     }
-  }
+    @include breakpoint(768px) {
+         @include flex-gtr-col(3,$base);
+    }
+    position: relative;
+    margin-top: 0;
+    text-decoration: none;
+    color: #676d79;
+    @include card();
+    overflow: hidden;
+    cursor: pointer;
 
-}
-.Article-teaser-header {
-  position: absolute;
-  top: 6*$base;
-  width: 90%;
-  max-width: 120px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  background-color: white;
-  padding: $base;
-  text-align: center;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.4s, transform 0.2s;
-}
-.Article-teaser-image {
-  transition: all .2s ease;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 250px;
-  width: 100%;
-  @include flex-position(center);
-  h3 {
-    background-color: white;
-    padding: $base;
-    max-width: 90%;
-    text-align: center;
-  }
-}
+    .Article-teaser-border {
+        display: block;
+        margin-top: -2px;
+        height: 2px;
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+        background-color: $light-grey;
 
-.Article-teaser-info {
-  h4 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  padding: $base;
-  color: $medium-grey;
-  span {
-    display: block;
-    margin: 0 0 $base/2 0;
-  }
-}
-
-//////////////////////////////////////////
-// Hoverstate Teaser
-//////////////////////////////////////////
-.Articles-teaser:hover {
-.Article-teaser-header {
-  opacity: 1;
-  transform: scale3d(1.05,1.05,1);
-}
-.Article-teaser-image {
-  transform: scale3d(1.05,1.05,1);
-}
-.Article-teaser-border:before {
-  visibility: visible;
-  transform: scaleX(1);
-}
-}
-
-
-//////////////////////////////////////////
-// Kategori teasers
-//////////////////////////////////////////
-.Articles-category-teasers {
-  @include flex-row();
-}
-
-
-
-
-.Articles-category-teaser {
-  color: white;
-  @include flex-position(center);
-  @include breakpoint(1px,400px) {
-    @include flex-gtr-col(2,$base);
-  }
-  @include breakpoint(401px,767px) {
-    @include flex-gtr-col(3,$base);
-  }
-  @include breakpoint(768px,1199px) {
-    @include flex-gtr-col(4,$base);
-  }
-  @include breakpoint(1200px) {
-    @include flex-gtr-col(5,$base);
-  }
-
-
-  text-decoration: none;
-  > div {
-    padding: $base;
-  }
-  span {
-    display: block;
-    text-align: center;
-  }
-}
-
-$colors: #F9BF3B,#26C281,#00B16A,#2574A9,#E74C3C,#6C7A89;
-
-@each $color in $colors {
-    $i: index($colors, $color);
-    .Articles-category-teaser:nth-of-type(#{$i}n) {
-        background-color: $color;
-        &:hover {
-          background: darken($color,5%);
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            background-color: $label-grey;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.2s ease-in-out 0s;
         }
     }
 }
 
+.Article-teaser-header {
+    position: absolute;
+    top: 6*$base;
+    width: 90%;
+    max-width: 120px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: white;
+    padding: $base;
+    text-align: center;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s, transform 0.2s;
+}
 
+.Article-teaser-image {
+    transition: all 0.2s ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 250px;
+    width: 100%;
+    @include flex-position(center);
 
+    h3 {
+        background-color: white;
+        padding: $base;
+        max-width: 90%;
+        text-align: center;
+    }
+}
 
+.Article-teaser-info {
+    h4 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    padding: $base;
+    color: $medium-grey;
+
+    span {
+        display: block;
+        margin: 0 0 $base/2;
+    }
+}
+//////////////////////////////////////////
+// Hoverstate Teaser
+//////////////////////////////////////////
+
+.Articles-teaser:hover {
+    .Article-teaser-header {
+        opacity: 1;
+        transform: scale3d(1.05,1.05,1);
+    }
+
+    .Article-teaser-image {
+        transform: scale3d(1.05,1.05,1);
+    }
+
+    .Article-teaser-border:before {
+        visibility: visible;
+        transform: scaleX(1);
+    }
+}
+//////////////////////////////////////////
+// Kategori teasers
+//////////////////////////////////////////
+
+.Articles-category-teasers {
+    @include flex-row();
+}
+
+.Articles-category-teaser {
+    color: white;
+    @include flex-position(center);
+    @include breakpoint(1px,400px) {
+         @include flex-gtr-col(2,$base);
+    }
+    @include breakpoint(401px,767px) {
+         @include flex-gtr-col(3,$base);
+    }
+    @include breakpoint(768px,1199px) {
+         @include flex-gtr-col(4,$base);
+    }
+    @include breakpoint(1200px) {
+         @include flex-gtr-col(5,$base);
+    }
+    text-decoration: none;
+
+    > div {
+        padding: $base;
+    }
+
+    span {
+        display: block;
+        text-align: center;
+    }
+}
+$colors: #F9BF3B,#26C281,#00B16A,#2574A9,#E74C3C,#6C7A89;
+@each $color in $colors {
+    $i: index($colors, $color);
+
+    .Articles-category-teaser:nth-of-type(#{$i}n) {
+        background-color: $color;
+        border: 1px solid $color;
+        &:before {
+          background: white;
+        }
+        &:hover {
+          color: $color;
+        }
+        &:active {
+          background-color: $content-grey;
+        }
+    }
+}
+
+.Articles-category-teaser {
+    position: relative;
+    border: 1px solid white;
+    transform: perspective(1px) translateZ(0);
+    overflow: hidden;
+    transition-property: color;
+    transition-duration: 0.3s;
+    vertical-align: middle;
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 100%;
+      transform: scale(0);
+      transition-property: transform;
+      transition-duration: 0.5s;
+      transition-timing-function: ease-out;
+    }
+    &:hover {
+      &:before {
+        transform: scale(2);
+      }
+    }
+
+}
 //////////////////////////////////////////
 // Artikeln
 //////////////////////////////////////////
+
 article {
-  color: $medium-grey;
+    color: $medium-grey;
 
-  blockquote {
-    background-color: $content-grey;
-    margin: 2*$base 0;
-    padding: 2*$base;
-    font-size: 24px;
-  }
-  pre {
-    background-color: $content-grey;
-    margin: 0;
-    padding: $base/5;
-    color: black;
-    white-space: pre-wrap; //css3
-    white-space: moz-pre-wrap; //firefox
-    white-space: -pre-wrap; //opera 4-6
-    white-space: -o-pre-wrap; //opera 7
-    word-wrap: break-word; //internet explorer
-  }
-  p {
-    line-height: 1.7;
-    max-width: 760px;
-  }
-  ul,ol {
-    padding-left: 20px;
-    margin: $base 0;
-    li {
-      margin: $base/3 0;
-      // color: $green;
+    blockquote {
+        background-color: $content-grey;
+        margin: 2*$base 0;
+        padding: 2*$base;
+        font-size: 24px;
     }
-  }
 
+    pre {
+        background-color: $content-grey;
+        margin: 0;
+        padding: $base/5;
+        color: black;
+        white-space: pre-wrap; //css3
+        white-space: moz-pre-wrap; //firefox
+        white-space: -pre-wrap; //opera 4-6
+        white-space: -o-pre-wrap; //opera 7
+        word-wrap: break-word; //internet explorer
+    }
 
+    p {
+        line-height: 1.7;
+        max-width: 760px;
+    }
 
+    ol,
+    ul {
+        padding-left: 20px;
+        margin: $base 0;
 
-
-
-
-
+        li {
+            margin: $base/3 0;
+            // color: $green;
+        }
+    }
 }
