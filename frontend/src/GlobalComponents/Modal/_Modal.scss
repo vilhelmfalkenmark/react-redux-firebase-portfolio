@@ -26,14 +26,17 @@
   }
 }
 .Modal-close {
+  z-index: 9999;
   cursor: pointer;
   position: absolute;
   top: 10px;
   right: $base;
-  font-size: 26px;
   transition: all .2s ease;
   display: block;
   width: 30px;
+  height: 30px;
+  background-image: url("../assets/svg/close.svg");
+  background-size: 100% auto;
   &:hover {
     transform: rotate(180deg);
   }

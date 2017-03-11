@@ -12,18 +12,14 @@ class Comments extends Component {
   this.state = {
    name: "",
    comment: "",
-   shown: true,
+   shown: false,
    slideleft: false
   }
  }
 
-
-
  slideLeft() {
   this.setState({ slideleft: true, name: "", comment: "" })
   }
-
-
 
   render () {
     const { firebase, comments, articleKey } = this.props;
@@ -63,7 +59,8 @@ class Comments extends Component {
 
     return (
       <section className="Comment-container">
-       <button onClick={() => this.setState({shown:!shown, slideleft: false})}>Kommentera inlägg?</button>
+       <span onClick={() => this.setState({shown:!shown, slideleft: false})} className="Comment-button">
+        <i className="flaticon-chat"></i>Kommentera inlägg</span>
 
        <div className={shown ? "Comment-container-fixed is-visible" : "Comment-container-fixed"}>
          <div className="Comment-container-clickarea" onClick={() => this.setState({shown:!shown})}></div>

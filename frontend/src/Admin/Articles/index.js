@@ -8,6 +8,7 @@ import Select from 'react-select';
 import RichEditor from '../RichEditor';
 import Regexify from "../../GlobalComponents/Regexify";
 import Dateify from "../../GlobalComponents/Dateify";
+import Modal from "../../GlobalComponents/Modal";
 
 class ArticlesContainer extends React.Component {
  constructor(props) {
@@ -17,7 +18,8 @@ class ArticlesContainer extends React.Component {
    selectedCategory: "Ingen kategori",
    title: "",
    content: null,
-   rawHTML: null
+   rawHTML: null,
+   modal: false
   }
  }
  //////////////////////////////////////////
@@ -27,6 +29,12 @@ class ArticlesContainer extends React.Component {
    this.setState({
     selectedImage: image
    })
+  }
+  //////////////////////////////////////////
+  // Modal
+  //////////////////////////////////////////
+  showModal() {
+   this.setState({modal: true})
   }
   //////////////////////////////////////////
   // Kategori
@@ -52,7 +60,7 @@ class ArticlesContainer extends React.Component {
    //////////////////////////////////////////
    // Destructors
    //////////////////////////////////////////
-   const { selectedImage, selectedCategory, content,rawHTML, title} = this.state;
+   const { selectedImage, selectedCategory, content,rawHTML, title, modal} = this.state;
    const { firebase, articles, categorys } = this.props;
 
    //////////////////////////////////////////
@@ -74,6 +82,7 @@ class ArticlesContainer extends React.Component {
         })
       }
       title.value = '';
+      this.showModal()
     /////////////////////////////////////////////
     // Uppdatera antal inlägg per kategori
     /////////////////////////////////////////////
@@ -112,7 +121,7 @@ class ArticlesContainer extends React.Component {
       }))
      }
      articleArray.sort((a,b) => new Date(b.created) - new Date(a.created));
-     // console.log(articleArray);
+
     articleList = articleArray.map((article,i) =>
      <Article
       key={i}
@@ -191,6 +200,12 @@ class ArticlesContainer extends React.Component {
         <section className="A-cols">
         {articleList}
        </section>
+       {
+        modal ? <Modal closeModal={()=>
+         this.setState({modal: false})}
+         header={`Framgång!`}
+         message={`Artikeln ${title} har skapats`}/> : null
+       }
       </div>
     )
   }

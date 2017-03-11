@@ -4,7 +4,7 @@ const Modal = (props) => {
  return (
   <section className="Modal-outer" onClick={props.closeModal}>
    <div className="Modal-box">
-     <i className="Modal-close flaticon-error"></i>
+     <i className="Modal-close"></i>
      <div>
        <h2>{header}</h2>
        <p>{message}</p>

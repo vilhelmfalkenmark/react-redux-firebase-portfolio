@@ -31,6 +31,14 @@ render(){
          <p>{article.categoryName} </p>
          <label>Skrivet</label>
          <p>{article.date}</p>
+         {
+          article.hasOwnProperty("edited") ?
+          <span>
+           <label>Redigerad</label>
+           <p>{article.edited}</p>
+          </span> : null
+         }
+
        </div>
        <div className="A-col-actions">
           <div className="A-col-actions--two-col">

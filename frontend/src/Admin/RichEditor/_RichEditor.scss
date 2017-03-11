@@ -14,10 +14,10 @@
 .RichEditor-editor {
   border-top: 1px solid $light-grey;
   padding-top: $base;
-  min-height: 200px;
+  min-height: 300px;
   max-height: 700px;
   overflow-y: scroll;
-  overflow-x: scroll;
+  // overflow-x: scroll;
   padding-left: $base;
   ul, ol {
     padding-left: 20px;

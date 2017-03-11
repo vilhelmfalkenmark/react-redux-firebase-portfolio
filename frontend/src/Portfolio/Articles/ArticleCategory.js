@@ -11,6 +11,7 @@ import CategoryTeaser from './CategoryTeaser'
 const { isLoaded, isEmpty, dataToJS } = helpers
 import Loader from "../../GlobalComponents/Loader";
 import { Redirect} from 'react-router'
+import CommentBox from "../Comment";
 
 
 class ArticleCategoryContainer extends React.Component {
@@ -63,6 +64,8 @@ class ArticleCategoryContainer extends React.Component {
              category={categorys[newestArticleInCategory.category].name}
             /> : "Ingen artikel skapad"
            }
+           <CommentBox articleKey={newestArticleInCategory.key} />
+
            <section>
             <h4>
              {

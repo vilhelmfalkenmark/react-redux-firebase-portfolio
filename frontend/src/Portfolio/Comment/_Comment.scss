@@ -70,7 +70,6 @@ section.Comment-container {
 }
 
 .Comment-form {
-  // height: 600px;
   left: 0;
 }
 .Comment-confirmation {
@@ -110,6 +109,18 @@ section.Comment-container {
 //////////////////////////////////////////
 // Kommentarslistan
 //////////////////////////////////////////
+.Comment-button {
+  color: $turq;
+  @include underline($turq);
+  display: inline-block;
+  i {
+    margin-right: $base/2;
+  }
+}
+.Comment-list {
+  margin-top: $base*2;
+}
+
 .Comment-list-comment {
   border-bottom: 1px solid $label-grey;
   h4 {

@@ -6,6 +6,8 @@ import RichEditor from '../RichEditor';
 const { isLoaded, isEmpty,  dataToJS } = helpers
 import ContentImages from '../Images/ContentImages'
 import Regexify from "../../GlobalComponents/Regexify";
+import Dateify from "../../GlobalComponents/Dateify";
+import Modal from "../../GlobalComponents/Modal";
 
 class EditArticleContainer extends React.Component {
  constructor(props) {
@@ -17,7 +19,8 @@ class EditArticleContainer extends React.Component {
    categoryChanged: false,
    fetchedInititalCategorys: false,
    content: null,
-   rawHTML: null
+   rawHTML: null,
+   modal: false
   }
  }
  selectImage(image) {
@@ -37,24 +40,27 @@ class EditArticleContainer extends React.Component {
  content(content,rawHTML) {
   this.setState({content,rawHTML})
  }
+ //////////////////////////////////////////
+ // Modal
+ //////////////////////////////////////////
+ showModal() {
+  this.setState({modal: true})
+ }
 
 render(){
      const { firebase, params, articles, categorys }=this.props;
      var article;
      var articleOutput = "Laddar artikel";
-     const { selectedImage, selectedCategory,categoryChanged,content, rawHTML}=this.state;
+     const { selectedImage, selectedCategory,categoryChanged,content, rawHTML,modal}=this.state;
 
     //////////////////////////////////////////
     // Redigera funktion
     //////////////////////////////////////////
      const handleEdit = () => {
         let key = params[0];
-        const { title,  date, edit, defaultImage, oldCategory}=this.refs
+        const { title,  date, edit, defaultImage, oldCategory, created}=this.refs
         if(typeof(selectedCategory) === "string") {
-         // console.log("kom in i redigeringen!");
-         // console.log(categoryChanged,"categoryChanged");
-         // console.log(selectedCategory,"selectedCategory");
-         // console.log(oldCategory,"oldCategory");
+
           firebase.set(`/articles/${key}/`, {
             title: title.value,
             url: Regexify(title.value),
@@ -62,9 +68,13 @@ render(){
             rawHTML: rawHTML,
             category: categoryChanged ? selectedCategory : oldCategory.value,
             date: date.value,
+            created: parseInt(created.value),
             edit: true,
+            edited: Dateify(new Date()),
             image: selectedImage !== null ? selectedImage : defaultImage.value
           })
+          this.showModal()
+
         } else {
          // console.log("kom inte in!");
         }
@@ -152,6 +162,7 @@ render(){
           <input type="hidden" defaultValue={article.date} ref="date"/>
           <input type="hidden" defaultValue={article.edit} ref="edit"/>
           <input type="hidden" defaultValue={article.image} ref="defaultImage"/>
+          <input type="hidden" defaultValue={article.created} ref="created"/>
           <input type="hidden" value={article.category}  ref="oldCategory" readOnly/>
           <input type="hidden" value={selectedCategory} ref="newCategory" readOnly/>
          </div>
@@ -167,6 +178,12 @@ render(){
          </div>
        </div>
        <button className="A-btn--update" onClick={handleEdit}>Uppdatera artikel</button>
+       {
+        modal ? <Modal closeModal={()=>
+         this.setState({modal: false})}
+         header={`Framgång!`}
+         message={`Artikeln har redigerats!`}/> : null
+       }
       </section>
      }
     return (

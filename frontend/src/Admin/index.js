@@ -41,7 +41,7 @@ logOut(e) {
                <ul className="A-Menu-list">
                  <li><Link to={`/`}> <i className="flaticon-home"></i>Till Hemsidan</Link></li>
                  <li><Link to={`${pathname}/articles`} activeClassName="is-active"><i className="flaticon-folded-newspaper"></i>Artiklar</Link></li>
-                 <li><Link to={`${pathname}/comments`} activeClassName="is-active"><i className="flaticon-folded-newspaper"></i>Kommentarer</Link></li>
+                 <li><Link to={`${pathname}/comments`} activeClassName="is-active"><i className="flaticon-chat"></i>Kommentarer</Link></li>
                  <li><Link to={`${pathname}/categorys`} activeClassName="is-active"><i className="flaticon-share"></i>Kategorier</Link></li>
                  <li><Link to={`${pathname}/skills`} activeClassName="is-active"><i className="flaticon-plumber"></i>Färdigheter</Link></li>
                  <li><Link to={`${pathname}/images`} activeClassName="is-active"><i className="flaticon-landscape-photo"></i>Bilder</Link></li>
