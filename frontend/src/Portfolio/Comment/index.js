@@ -5,7 +5,7 @@ const { isLoaded,  dataToJS } = helpers;
 import Loader from "../../GlobalComponents/Loader";
 import Dateify from "../../GlobalComponents/Dateify";
 import Comment from "./Comment";
-import {siteFixed} from "../../Actions/Footer";
+import {siteFixed} from "../../Actions/Dom";
 
 class Comments extends Component {
  constructor() {
@@ -14,27 +14,35 @@ class Comments extends Component {
    name: "",
    comment: "",
    shown: false,
-   slideleft: false
+   slideleft: false,
+   display: "none",
+   opacity: 0
   }
  }
+
+
 
  slideLeft() {
   this.setState({ slideleft: true, name: "", comment: "" })
   }
+
   showModal() {
    this.props.dispatch(siteFixed(true));
-   this.setState({shown:!this.state.shown, slideleft: false})
+   this.setState({shown:!this.state.shown, slideleft: false, display: "flex",opacity: 1})
   }
   hideModal() {
    this.props.dispatch(siteFixed(false));
-   this.setState({shown:!this.state.shown, slideleft: false})
-  }
+   this.setState({shown:!this.state.shown, slideleft: false,opacity: 0})
 
-
+   window.setTimeout(
+    () => {
+      this.setState({display: "none"})
+      },500)
+    }
 
   render () {
     const { firebase, comments, articleKey } = this.props;
-    const { name,comment,modal,shown,slideleft } = this.state;
+    const { name,comment,modal,shown,slideleft, display, opacity} = this.state;
 
     const addComment = () => {
       const { name,comment  } = this.refs
@@ -73,7 +81,7 @@ class Comments extends Component {
        <span onClick={this.showModal.bind(this)} className="Comment-button">
         <i className="flaticon-chat"></i>Kommentera inlägg</span>
 
-       <div className={shown ? "Comment-container-fixed is-visible" : "Comment-container-fixed"}>
+       <div className={shown ? "Comment-container-fixed is-visible" : "Comment-container-fixed"} style={{display: display, opacity: opacity}}>
          <div className="Comment-container-clickarea" onClick={this.hideModal.bind(this)}></div>
 
        <div className={slideleft ? "Comment-container-inner u-Overflow-Hidden" : "Comment-container-inner"}>

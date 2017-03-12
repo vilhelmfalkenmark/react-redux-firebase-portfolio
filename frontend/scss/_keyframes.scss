@@ -1,0 +1,111 @@
+//////////////////////////////////////////
+// Word landningssida och 404
+//////////////////////////////////////////
+@keyframes rotateIn {
+  from {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+@keyframes rotateOut {
+  from {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: rotateY(100deg);
+    opacity: 0;
+  }
+}
+//////////////////////////////////////////
+// Skills SVG fill
+//////////////////////////////////////////
+@keyframes fillCircle {
+  from {
+    stroke-dasharray: 0 100;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+//////////////////////////////////////////
+// Glid in (erfarenheter)
+//////////////////////////////////////////
+$xp-offset: 100%;
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX($xp-offset);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-$xp-offset);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+//////////////////////////////////////////
+// Skala upp och ner
+//////////////////////////////////////////
+@keyframes sk-scaleup {
+0% {
+  transform: scale(0);
+  opacity: 0;
+
+} 100% {
+  transform: scale(1.0);
+  opacity: 1;
+}
+}
+@keyframes sk-scaledown {
+0% {
+  transform: scale(1.0);
+  opacity: 1;
+
+} 100% {
+  transform: scale(0);
+  opacity: 0;
+}
+}
+//////////////////////////////////////////
+// Fadein ex kommentera
+//////////////////////////////////////////
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+//////////////////////////////////////////
+// Laddaren
+//////////////////////////////////////////
+@keyframes sk-foldCubeAngle {
+  0%, 10% {
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  } 25%, 75% {
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+  } 90%, 100% {
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+  }
+}

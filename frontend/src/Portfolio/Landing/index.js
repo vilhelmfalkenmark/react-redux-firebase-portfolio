@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { firebase, helpers } from 'react-redux-firebase'
-import { footer  } from "../../Actions/Footer";
+import { footer  } from "../../Actions/Dom";
 const { isLoaded, isEmpty, pathToJS, dataToJS } = helpers
 import ParticleContainer from "../Particles";
 import Word from "../Word"
@@ -12,37 +12,52 @@ class LandingContainer extends Component {
   this.state = {
    words: {
     one: {
-     word: "Webbutvecklare"
+     word: "Jag är en Webbutvecklare"
     },
-    two: {
-     word: "Front-End entusiast"
+    a: {
+     word: "& Front-End Entusiast"
     },
-    three: {
-     word: "Javascript fanboy"
+    b: {
+     word: "Född och uppvuxen i Stockholm."
     },
-    four: {
-     word: "React & Reduxare"
+    c: {
+     word: "Jag tycker Javascript och ES6..."
     },
-    five: {
-     word: "Gulpare"
+    d: {
+     word: "är roligast att skriva kod i."
     },
-    six: {
-     word: "SASS haxxor"
+    e: {
+     word: "Och just nu blir det mest React-redux"
     },
-    seven: {
-     word: "Wordpresser"
+    // f: {
+    //  word: "Men har inget emot att utveckla mot lamp-stacken"
+    // },
+    g: {
+     word: "har svart bälte i SASS"
     },
-    eight: {
-     word: "Node.js fan"
+    h: {
+     word: "Wordpressare"
     },
-    nine: {
-     word: "PHP:are"
+    i: {
+     word: "& PHP-utvecklare"
     },
-    ten: {
-     word: "Gitarrknäppare"
+    j: {
+     word: "Men just nu känns Node.js roligare"
     },
-    eleven: {
-     word: "Och säkert massa fler saker"
+    k: {
+     word: "Notorisk Gitarrknäppare"
+    },
+    l: {
+     word: "Cyklar jättesnabbt"
+    },
+    // m: {
+    //  word: "Cyklar jättesnabbt"
+    // },
+    n: {
+     word: "Föredrar att kallas 'Ville'"
+    },
+    o: {
+     word: "Kul att du är här!"
     }
    }
   }

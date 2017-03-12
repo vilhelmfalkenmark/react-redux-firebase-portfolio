@@ -1,12 +1,4 @@
-@keyframes fillCircle {
-  from {
-    stroke-dasharray: 0 100;
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+
 @mixin animateDelay($time) {
   animation-delay: $time;
 }

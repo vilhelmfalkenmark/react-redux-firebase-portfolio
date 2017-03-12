@@ -1,4 +1,5 @@
 .Portfolio-row {
+  animation: sk-scaleup .4s  ease-in-out;
   @include flex-row();
   > div {
     @include breakpoint(1px, 867px) {
@@ -30,6 +31,7 @@
 .Portfolio-computer {
   background:  url("../assets/images/devices/macbook-flat.png") no-repeat center center;
   background-size: contain;
+  position: relative;
   height: 300px;
   width: 100%;
   cursor: pointer;
@@ -42,6 +44,20 @@
     display: block;
     max-width: 400px;
   }
+  span {
+    position: absolute;
+    padding: $base;
+    background-color: white;
+    color: $text;
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  &:hover {
+    span {
+      opacity: 1;
+    }
+  }
+
 
 }
 //////////////////////////////////////////

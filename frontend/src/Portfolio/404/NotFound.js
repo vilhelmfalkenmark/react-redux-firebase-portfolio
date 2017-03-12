@@ -2,7 +2,7 @@ import React from "react";
 import ParticleContainer from "../Particles";
 import Word from "../Word"
 import { connect } from 'react-redux'
-import { footer  } from "../../Actions/Footer";
+import { footer  } from "../../Actions/Dom";
 
 class notFound extends React.Component {
 

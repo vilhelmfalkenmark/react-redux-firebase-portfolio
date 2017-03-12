@@ -1,3 +1,5 @@
+
+
 section.Comment-container {
   margin: 0 auto ;
   @include thinContent();
@@ -9,6 +11,7 @@ section.Comment-container {
   }
 }
 .Comment-container-fixed {
+  animation: fadeIn .3s ease-out;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -16,14 +19,20 @@ section.Comment-container {
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba($label-grey,0.5);
   z-index: 999;
+  transition: opacity .5s ease;
+  background-color: rgba($label-grey,0.5);
+  @include flex-position(center);
+  display: none;
   &:not(.is-visible) {
-    display: none;
+    .Comment-container-inner {
+      animation: sk-scaledown .4s  ease-in-out;
+    }
   }
   &.is-visible {
-    // display: block;
-    @include flex-position(center);
+    .Comment-container-inner {
+      animation: sk-scaleup .4s  ease-in-out;
+    }
   }
 }
 .Comment-container-clickarea {
@@ -45,14 +54,13 @@ section.Comment-container {
   width: 95%;
   max-width: 560px;
   margin: 0 auto;
-  animation: sk-scaleup .4s  ease-in-out;
+
 }
 
 .Comment-container-slider {
   position: relative;
-  // transform: translateX(-50%);
   width: 200%;
-  transition: all .3s ease;
+  transition: transform .3s ease;
   > div {
     padding: 2*$base;
     position: absolute;
@@ -83,7 +91,7 @@ section.Comment-container {
   position: absolute;
   top: 10px;
   right: $base;
-  transition: all .2s ease;
+  transition: transform .2s ease;
   display: block;
   width: 30px;
   height: 30px;
@@ -130,7 +138,6 @@ section.Comment-container {
 
 .Comment-list-comment {
   @include card();
-  // background-color: lighten($content-grey,4%);
   padding: 2*$base;
   margin-bottom: 2*$base;
 }

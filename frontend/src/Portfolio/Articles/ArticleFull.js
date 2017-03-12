@@ -7,7 +7,7 @@ render(){
     const {article,category}=this.props;
     document.title=`${article.title} | Vilhelm Falkenmark`;
     return (
-     <article>
+     <article className="Article">
       <header>
        <h1>{article.title}</h1>
        <label>Kategori: {category}</label>

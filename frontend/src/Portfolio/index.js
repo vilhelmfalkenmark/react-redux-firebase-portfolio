@@ -85,7 +85,7 @@ const mapStateToProps = (state) => {
   return {
     adminActive: state.adminActive,
     burger: state.burger.portfolioBurger,
-    isFixed: state.footer.siteFixed
+    isFixed: state.dom.siteFixed
   }
 }
 export default connect(mapStateToProps)(Portfolio);

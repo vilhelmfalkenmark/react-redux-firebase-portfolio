@@ -15,7 +15,7 @@ $loaderColor: $pink;
   }
   @include flex-position(center);
   background-color: $content-grey;
-  z-index: $p-loaderZ; 
+  z-index: $p-loaderZ;
 }
 .Loader-inner {
   h3 {
@@ -65,17 +65,4 @@ $loaderColor: $pink;
 }
 .Loader-folding-cube .Loader-cube4:before {
           animation-delay: 0.9s;
-}
-
-@keyframes sk-foldCubeAngle {
-  0%, 10% {
-            transform: perspective(140px) rotateX(-180deg);
-    opacity: 0;
-  } 25%, 75% {
-            transform: perspective(140px) rotateX(0deg);
-    opacity: 1;
-  } 90%, 100% {
-            transform: perspective(140px) rotateY(180deg);
-    opacity: 0;
-  }
 }

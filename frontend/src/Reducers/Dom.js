@@ -1,20 +1,15 @@
-export default function footer(state = {
+export default function dom(state = {
   landingPage: false,
   siteFixed: false
 }, action) {
     //////////////////////////////////////////
     // Vilken färg ska footern ha?
     //////////////////////////////////////////
-    if (action.type === "IS_LANDING_PAGE") {
+    if (action.type === "LANDING_PAGE") {
       return {
         ...state,
-        landingPage: true
+        landingPage: action.payload
       }
-    } else if(action.type === "NOT_LANDING_PAGE") {
-     return {
-      ...state,
-      landingPage: false
-     }
     }
     //////////////////////////////////////////
     // Fixera sida
@@ -22,13 +17,8 @@ export default function footer(state = {
     else if (action.type === "FIX_PAGE") {
       return {
         ...state,
-        siteFixed: true
+        siteFixed: action.payload
       }
-    } else if(action.type === "NOT_FIX_PAGE") {
-     return {
-      ...state,
-      siteFixed: false
-     }
     }
     return state;
 }

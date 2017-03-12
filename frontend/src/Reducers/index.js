@@ -4,13 +4,13 @@ import images from "./Images"
 import logIn from "./Login"
 import burger from "./Burger"
 import adminActive from "./Admin"
-import footer from "./Footer"
+import dom from "./Dom"
 const rootReducer = combineReducers({
   firebase,
   images,
   logIn,
   burger,
-  footer,
+  dom,
   adminActive
 })
 export default rootReducer

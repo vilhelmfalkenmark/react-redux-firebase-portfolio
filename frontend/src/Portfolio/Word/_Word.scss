@@ -1,25 +1,7 @@
-@keyframes rotateIn {
-  from {
-    transform: rotateY(90deg);
-    opacity: 0;
-  }
-  to {
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-}
-@keyframes rotateOut {
-  from {
-    transform: rotateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: rotateY(100deg);
-    opacity: 0;
-  }
-}
+
 .Word-container {
   text-align: center;
+
 }
 
 .Word-container:not(.Word-container--rotate) {
@@ -38,21 +20,23 @@
   text-transform: uppercase;
   color: white;
 }
-
+.Word-blank {
+  display: inline-block;
+}
 
 
 
 
 @include breakpoint(1px,767px) {
-  .Word-blank {
-    display: block;
-    padding: 0;
+  .Word-container {
+    max-width: 95%;
+    margin: 0 auto;
+    span {
+      padding: 8px 3px;
+      font-size: 22px;
+    }
   }
-  .Word-letter {
-    padding: 8px 3px;
-    font-size: 22px;
 
-  }
 }
 @include breakpoint(768px) {
   .Word-container {

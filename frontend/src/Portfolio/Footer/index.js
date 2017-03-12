@@ -48,7 +48,9 @@ class Footer extends React.Component {
        <p className="Footer-copy">
         Den här sidan är byggd på React,
         Redux och Firebase av Vilhelm Falkenmark
-        i december 2016 - mars 2017. <a href="https://github.com/vilhelmfalkenmark/react-redux-firebase-portfolio" target="_blank">Till projektet på Github</a>
+        i december 2016 - mars 2017. <a href="https://github.com/vilhelmfalkenmark/react-redux-firebase-portfolio" target="_blank">Till projektet på Github.</a>&nbsp;
+        Ikoner kommer från Flat-icon. Följande NPM-paket har använts i produktion: Particles.js, React-select, Draft.js, Draft-js-export-html. Så tack till dess uppehovsmän för deras
+        fantastiska Open-source arbete.
        </p>
        </div>
      </footer>
@@ -57,7 +59,7 @@ class Footer extends React.Component {
 }
 const mapStateToProps = (state) => {
   return {
-    landingPage: state.footer.landingPage
+    landingPage: state.dom.landingPage
   }
 }
 export default connect(mapStateToProps)(Footer);

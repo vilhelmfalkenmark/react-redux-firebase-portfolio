@@ -71,7 +71,7 @@
   @include breakpoint(768px) {
     margin-left: 2*$base;
     flex-basis: calc(100% - #{4*$base});
-    width: calc(100% - #{4*$base});
+    width4: calc(100% - #{4*$base});
   }
 }
 //////////////////////////////////////////

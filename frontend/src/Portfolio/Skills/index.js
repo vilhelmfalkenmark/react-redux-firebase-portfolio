@@ -12,7 +12,7 @@ class SkillsContainer extends Component {
     const skillList = (!isLoaded(skills))
                         ? <Loader type="Färdigheter"/>
                         : (isEmpty(skills))
-                          ? 'Todo list is empty'
+                          ? 'Inga färdigheter tillagda'
                           : Object.keys(skills).map((key) => (
                             <Skill key={key} id={key} skill={skills[key]} />
                           ))

@@ -114,42 +114,30 @@ $xp-circle: 130px;
 // GLID IN FUNKTIONALITET
 //////////////////////////////////////////
 
-$xp-offset: 100%;
-
-@keyframes slideInFromRight {
-  from {
-    transform: translateX($xp-offset);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromLeft {
-  from {
-    transform: translateX(-$xp-offset);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-}
-
 $trans-in: cubic-bezier(1,0,.55,.95);
 $trans-out: cubic-bezier(1,-.02,.695,.79);
 
+@include breakpoint(1px,600px) {
+.Experience-row {
+  .Experience-card.slide-in {
+    animation: sk-scaleup .4s  ease-in-out;
+  }
+}
+}
+@include breakpoint(601px,1099px) {
+.Experience-row {
+  .Experience-card.slide-in {
+    animation: slideInFromRight .5s $trans-in forwards;
+  }
+}
+}
 @include breakpoint(1100px) {
-
 .Experience-row:nth-of-type(odd) {
   .Experience-card.slide-in {
     animation: slideInFromRight .5s $trans-in forwards;
   }
 }
 .Experience-row:nth-of-type(even) {
-
   .Experience-card.slide-in {
     animation: slideInFromLeft .5s $trans-in forwards;
   }
