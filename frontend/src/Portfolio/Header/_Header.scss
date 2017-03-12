@@ -16,11 +16,13 @@ $menuItemOpacity: 0.5;
 .Header {
   position: fixed;
   z-index: 99;
-  width: $p-menuWidth;
   height: 100%;
   background-color: white;
-  transform: translateX(-$p-menuWidth);
-  transition: all .3s ease;
+  @include breakpoint(1px, #{$p-headerCollapse}-1) {
+    transform: translateX(-$p-menuWidth);
+    width: $p-menuWidth;
+    transition: transform .3s ease;
+  }
   box-shadow: inset -5px 0px 15px -11px rgba(0, 0, 0, 0.58);
   @include flex-row();
   @include breakpoint($p-headerCollapse) {
@@ -62,10 +64,6 @@ $menuItemOpacity: 0.5;
   @include breakpoint(1px, #{$p-headerCollapse}-1) {
     margin: 0 auto;
     padding: 0;
-    li {
-      // transition: all .4s ease;
-      // transform: translateX($menuItemOffset);
-    }
   }
   @include breakpoint($p-headerCollapse) {
     @include flex-row();
@@ -137,7 +135,7 @@ $menuItemOpacity: 0.5;
       // opacity: $menuItemOpacity;
       }
     }
-  }
+
 
   .Portfolio-container.menu-open {
     .Header {
@@ -155,6 +153,10 @@ $menuItemOpacity: 0.5;
       transform: translateX($p-menuWidth);
     }
   }
+  }
+
+
+
   .Portfolio-container:not(.menu-open) {
     .Menu-list {
       li {

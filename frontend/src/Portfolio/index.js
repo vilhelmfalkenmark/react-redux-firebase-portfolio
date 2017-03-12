@@ -50,8 +50,8 @@ return (
            <menu className="Menu">
              <ul className="Menu-list">
                <li><Link to={`/`} activeOnlyWhenExact activeClassName="is-active">Hem</Link></li>
-               <li><Link to={`/fardigheter`} activeClassName="is-active">Färdigheter</Link></li>
                <li><Link to={`/artiklar`} activeClassName="is-active">Artiklar</Link></li>
+               <li><Link to={`/fardigheter`} activeClassName="is-active">Färdigheter</Link></li>
                <li><Link to={`/portfolio`} activeClassName="is-active">Portfolio</Link></li>
                <li><Link to={`/erfarenheter`}activeClassName="is-active" >Erfarenheter</Link></li>
              </ul>
