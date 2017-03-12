@@ -25,11 +25,11 @@ router.use(function(req, res, next) {
 app.use('/api', router);
 
 /////////////// ENDAST FÖR PRODUKTION ///////////////
-// app.use(express.static(path.resolve(__dirname, '../frontend/build')));
-//
-// app.get('*', function (req, res) {
-//  res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
-// });
+app.use(express.static(path.resolve(__dirname, '../frontend/build')));
+
+app.get('*', function (req, res) {
+ res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
+});
 
 //////////////////////////////////////////
 // API FÖR BILDHANTERING
