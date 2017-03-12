@@ -39,10 +39,10 @@ componentDidMount() {
 // componentWillUnmount() {document.removeEventListener('scroll', throttle());}
 render () {
 
-const {adminActive, burger} = this.props
+const {adminActive, burger,isFixed} = this.props
 const {pageTop} = this.state
 return (
-      <div className={burger ? "Portfolio-container menu-open" : "Portfolio-container" }>
+      <div className={(burger && !isFixed ) ? "Portfolio-container menu-open" : isFixed ? "Portfolio-container is-fixed" : "Portfolio-container" }>
        {!adminActive.adminActive ? <Burger page="portfolio"/> : null }
         {
          !adminActive.adminActive ? // <-- Så att man inte ser menyn i adminvy
@@ -56,8 +56,6 @@ return (
                <li><Link to={`/erfarenheter`}activeClassName="is-active" >Erfarenheter</Link></li>
              </ul>
              <Link to={`/`} className="Header-logo">VF</Link>
-
-
 
             </menu>
          </header> : null
@@ -86,7 +84,8 @@ return (
 const mapStateToProps = (state) => {
   return {
     adminActive: state.adminActive,
-    burger: state.burger.portfolioBurger
+    burger: state.burger.portfolioBurger,
+    isFixed: state.footer.siteFixed
   }
 }
 export default connect(mapStateToProps)(Portfolio);

@@ -1,9 +1,9 @@
 export default function footer(state = {
-  landingPage: false
+  landingPage: false,
+  siteFixed: false
 }, action) {
     //////////////////////////////////////////
-    // Hide portfolio header and footer in
-    // adminv view
+    // Vilken färg ska footern ha?
     //////////////////////////////////////////
     if (action.type === "IS_LANDING_PAGE") {
       return {
@@ -14,6 +14,20 @@ export default function footer(state = {
      return {
       ...state,
       landingPage: false
+     }
+    }
+    //////////////////////////////////////////
+    // Fixera sida
+    //////////////////////////////////////////
+    else if (action.type === "FIX_PAGE") {
+      return {
+        ...state,
+        siteFixed: true
+      }
+    } else if(action.type === "NOT_FIX_PAGE") {
+     return {
+      ...state,
+      siteFixed: false
      }
     }
     return state;

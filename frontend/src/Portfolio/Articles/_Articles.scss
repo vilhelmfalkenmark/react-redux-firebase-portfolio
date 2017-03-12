@@ -209,7 +209,14 @@ article {
         padding: 2*$base;
         font-size: 24px;
     }
-
+    a {
+      color: $turq;
+      display: inline-block;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
     pre {
         background-color: $content-grey;
         margin: 0;
@@ -221,7 +228,6 @@ article {
         white-space: -o-pre-wrap; //opera 7
         word-wrap: break-word; //internet explorer
     }
-
     p {
         line-height: 1.7;
         max-width: 760px;

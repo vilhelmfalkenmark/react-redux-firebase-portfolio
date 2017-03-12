@@ -1,6 +1,10 @@
 .Portfolio-container {
   overflow: hidden;
   color: $p-grey;
+  &.is-fixed {
+    position: fixed;
+    width: 100%;
+  }
 }
 //////////////////////////////////////////
 // Main
@@ -8,6 +12,7 @@
 .Main-container {
   overflow-x: hidden;
   transition: all .3s ease;
+
 }
 .Content-container { // <-- Används på alla sidor förrutom landningssida eftersom den har en hero
   display: flex;

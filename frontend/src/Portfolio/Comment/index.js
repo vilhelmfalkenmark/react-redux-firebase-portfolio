@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { firebase, helpers } from 'react-redux-firebase'
-const { isLoaded,  dataToJS } = helpers
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { firebase, helpers } from 'react-redux-firebase';
+const { isLoaded,  dataToJS } = helpers;
 import Loader from "../../GlobalComponents/Loader";
 import Dateify from "../../GlobalComponents/Dateify";
 import Comment from "./Comment";
+import {siteFixed} from "../../Actions/Footer";
 
 class Comments extends Component {
  constructor() {
@@ -20,6 +21,16 @@ class Comments extends Component {
  slideLeft() {
   this.setState({ slideleft: true, name: "", comment: "" })
   }
+  showModal() {
+   this.props.dispatch(siteFixed(true));
+   this.setState({shown:!this.state.shown, slideleft: false})
+  }
+  hideModal() {
+   this.props.dispatch(siteFixed(false));
+   this.setState({shown:!this.state.shown, slideleft: false})
+  }
+
+
 
   render () {
     const { firebase, comments, articleKey } = this.props;
@@ -59,14 +70,14 @@ class Comments extends Component {
 
     return (
       <section className="Comment-container">
-       <span onClick={() => this.setState({shown:!shown, slideleft: false})} className="Comment-button">
+       <span onClick={this.showModal.bind(this)} className="Comment-button">
         <i className="flaticon-chat"></i>Kommentera inlägg</span>
 
        <div className={shown ? "Comment-container-fixed is-visible" : "Comment-container-fixed"}>
-         <div className="Comment-container-clickarea" onClick={() => this.setState({shown:!shown})}></div>
+         <div className="Comment-container-clickarea" onClick={this.hideModal.bind(this)}></div>
 
        <div className={slideleft ? "Comment-container-inner u-Overflow-Hidden" : "Comment-container-inner"}>
-        <i className="Comment-close" onClick={() => this.setState({shown:!shown})}></i>
+        <i className="Comment-close" onClick={this.hideModal.bind(this)}></i>
 
         <div className={slideleft ? "Comment-container-slider slide-left":"Comment-container-slider"}>
 

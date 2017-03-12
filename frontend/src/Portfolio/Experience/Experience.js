@@ -1,7 +1,4 @@
 import React from "react";
-// import ReactDOM from 'react-dom';
-// import Skill from "../../GlobalComponents/Skills"
-
 class Experience extends React.Component {
 
 constructor() {
