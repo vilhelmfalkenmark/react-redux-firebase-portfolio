@@ -8,6 +8,7 @@ import ContentImages from '../Images/ContentImages'
 import Regexify from "../../GlobalComponents/Regexify";
 import Dateify from "../../GlobalComponents/Dateify";
 import Modal from "../../GlobalComponents/Modal";
+import Link from "../Link";
 
 class EditArticleContainer extends React.Component {
  constructor(props) {
@@ -116,6 +117,7 @@ render(){
         <div className="A-input-row-input">
          <label>Rubrik</label>
          <input type="text" defaultValue={article.title} ref='title'/>
+         <span></span>
          </div>
        </div>
        <div className="A-input-row">
@@ -129,6 +131,7 @@ render(){
          defaultContent={article.content}
          draft={false}
          />
+         <Link />
          </div>
        </div>
        {

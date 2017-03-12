@@ -242,3 +242,21 @@ border: 1px solid white;
     }
   }
 }
+//////////////////////////////////////////
+// General grid
+//////////////////////////////////////////
+.A-row {
+  @include flex-row();
+}
+.A-col--one {
+  @include flex-gtr-col(1,$base);
+}
+.A-col--two {
+  @include flex-gtr-col(2,$base);
+}
+.A-col--three {
+  @include flex-gtr-col(3,$base);
+}
+.A-col--four {
+  @include flex-gtr-col(4,$base);
+}

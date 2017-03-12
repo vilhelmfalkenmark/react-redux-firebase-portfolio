@@ -31,10 +31,9 @@ logOut(e) {
 }
     render() {
     const {pathname, logIn, dispatch, burger} = this.props
-    // console.log(burger);
     return (
-      logIn.loggedIn ?
-      // true ?
+      // logIn.loggedIn ?
+      true ?
        <div className="A-Container">
             <div className={burger ? "A-Menu-container menu-open" : "A-Menu-container"}>
              <menu className="A-Menu">

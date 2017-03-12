@@ -9,6 +9,8 @@ import RichEditor from '../RichEditor';
 import Regexify from "../../GlobalComponents/Regexify";
 import Dateify from "../../GlobalComponents/Dateify";
 import Modal from "../../GlobalComponents/Modal";
+import Link from "../Link";
+
 
 class ArticlesContainer extends React.Component {
  constructor(props) {
@@ -161,11 +163,11 @@ class ArticlesContainer extends React.Component {
          </div>
          <div className="A-input-row-input">
            <label>Innehåll</label>
-           {/* {console.log(this.content)} */}
            <RichEditor
             content={this.content.bind(this)}
             draft={localStorage.getItem("draft")}
             />
+            <Link />
           </div>
         </div>
         <div className="A-input-row">
