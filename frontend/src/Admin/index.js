@@ -32,8 +32,8 @@ logOut(e) {
     render() {
     const {pathname, logIn, dispatch, burger} = this.props
     return (
-      // logIn.loggedIn ?
-      true ?
+      logIn.loggedIn ?
+      // true ?
        <div className="A-Container">
             <div className={burger ? "A-Menu-container menu-open" : "A-Menu-container"}>
              <menu className="A-Menu">
@@ -47,7 +47,6 @@ logOut(e) {
                  <li><Link to={`${pathname}/portfolio`} activeClassName="is-active"><i className="flaticon-briefcase"></i>Portfolio</Link></li>
                  <li><Link to={`${pathname}/experiences`} activeClassName="is-active"><i className="flaticon-list"></i>Erfarenheter</Link></li>
                  <li className="A-Menu-logout-btn"><a href="#" onClick={(e) => this.logOut(e)}><i className="flaticon-exit"></i>Logga ut</a></li>
-                 {/* <li onClick={this.registerUser.bind(this)}>Skapa användare</li> */}
                </ul>
               </menu>
             </div>
