@@ -16,7 +16,7 @@ const fs = require('fs');
 //   rootFolder = "./public";
 // }
 // let rootFolder = "../build";
-let rootFolder = './frontend/public';
+let rootFolder = './frontend/build';
 
 const router = express.Router();
 router.use(function(req, res, next) {
