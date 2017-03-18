@@ -2,7 +2,7 @@
   position: relative;
   height: calc(100vh);
   height: calc(100vh + 75px);
-
+  width: 100%;
   @include breakpoint($p-headerCollapse) {
     // height: calc(100vh + #{$p-menuHeight});
     height: calc(100vh + 75px);

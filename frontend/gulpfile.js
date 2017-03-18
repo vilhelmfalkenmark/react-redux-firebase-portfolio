@@ -8,6 +8,25 @@ const cleanCSS = require('gulp-clean-css');
 // const svgstore = require('gulp-svgstore')
 // const svgmin = require('gulp-svgmin')
 const rename = require('gulp-rename')
+const browserSync = require('browser-sync');
+
+//////////////////////////////////////////
+// BROWSERSYNC
+//////////////////////////////////////////
+gulp.task('browserSync', function() {
+    browserSync ({
+        proxy: {
+          target: "http://localhost:3000"
+        },
+        ui: {
+         port: 5000,
+         weinre: {
+             port: 9090
+           }
+        }
+    });
+});
+
 
 //////////////////////////////////////////
 // SASS
@@ -25,6 +44,9 @@ gulp.task('sass', () => {
         .pipe(autoprefixer(autoprefixerOptions))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./css'))
+        .pipe(browserSync.reload({
+        stream: true
+        }));
 });
 
 
@@ -33,7 +55,7 @@ gulp.task('watch', () => {
 });
 
 gulp.task('default', (callback) => {
-    runSequence(['sass','watch'],
+    runSequence(['sass','watch','browserSync'],
         callback
     )
 });

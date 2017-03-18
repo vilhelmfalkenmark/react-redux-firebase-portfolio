@@ -9,14 +9,12 @@ const app = express();
 const fs = require('fs');
 
 // SÄTT GRUNDMAPP
-// let rootFolder;
-// if(process.env.NODE_ENV==="production") {
-//   rootFolder = "./build";
-// } else {
-//   rootFolder = "./public";
-// }
-// let rootFolder = "../build";
-let rootFolder = './frontend/build';
+let rootFolder;
+if(PORT === process.env.PORT) {
+ rootFolder = './frontend/build';
+} else  {
+ rootFolder = './frontend/public';
+}
 
 const router = express.Router();
 router.use(function(req, res, next) {
@@ -36,12 +34,10 @@ app.get('*', function (req, res) {
 //////////////////////////////////////////
 const imageFolder = rootFolder+"/uploads";
 
-
 // Kolla om mappen finns annars skapa den
 if (!fs.existsSync(imageFolder)){
     fs.mkdirSync(imageFolder);
 }
-
 var allImages = [];
 
  //////////////////////////////////////////

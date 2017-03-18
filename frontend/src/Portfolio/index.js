@@ -11,6 +11,10 @@ import Landing from "./Landing";
 import Footer from "./Footer";
 import { connect } from 'react-redux';
 import Burger from "../GlobalComponents/Burger";
+import { portfolioBurger } from "../Actions/Burger";
+
+
+
 // import {throttle, debounce} from "lodash";
 
 class Portfolio extends React.Component {
@@ -18,28 +22,18 @@ constructor() {
  super()
  this.state = {pageTop: true}
 }
-componentDidMount() {
-  // var previousTop = window.pageYOffset;
-  //    document.addEventListener('scroll',
-  //    throttle( () => {
-  //     if(window.pageYOffset > 0) { // <-- Man är inte högst upp på sidan
-  //     var currentOffTop = window.pageYOffset;
-  //     if(currentOffTop > previousTop && window.pageYOffset > 130) {
-  //      this.setState({ pageTop: false})
-  //     } else {
-  //      this.setState({ pageTop: true})
-  //     }
-  //     previousTop = currentOffTop;
-  //   } else {
-  //    this.setState({ pageTop: true})
-  //   }}, 250)
-  //  );
- }
 
-// componentWillUnmount() {document.removeEventListener('scroll', throttle());}
+
+closeMenu() {
+ if(this.props.burger) {
+  this.props.dispatch(portfolioBurger(true))
+ }
+}
+
+
 render () {
 
-const {adminActive, burger,isFixed} = this.props
+const {adminActive, burger, isFixed} = this.props
 const {pageTop} = this.state
 return (
       <div className={(burger && !isFixed ) ? "Portfolio-container menu-open" : isFixed ? "Portfolio-container is-fixed" : "Portfolio-container" }>
@@ -48,15 +42,14 @@ return (
          !adminActive.adminActive ? // <-- Så att man inte ser menyn i adminvy
          <header className={pageTop ? "Header" : "Header is-hidden"} >
            <menu className="Menu">
-             <ul className="Menu-list">
+             <ul className="Menu-list" onClick={this.closeMenu.bind(this)}>
                <li><Link to={`/`} activeOnlyWhenExact activeClassName="is-active">Hem</Link></li>
                <li><Link to={`/artiklar`} activeClassName="is-active">Artiklar</Link></li>
                <li><Link to={`/fardigheter`} activeClassName="is-active">Färdigheter</Link></li>
                <li><Link to={`/portfolio`} activeClassName="is-active">Portfolio</Link></li>
                <li><Link to={`/erfarenheter`}activeClassName="is-active" >Erfarenheter</Link></li>
              </ul>
-             <Link to={`/`} className="Header-logo">VF</Link>
-
+             <Link to={`/`} className="Header-logo" onClick={this.closeMenu.bind(this)}>VF</Link>
             </menu>
          </header> : null
         }

@@ -1,7 +1,9 @@
 
 .Word-container {
   text-align: center;
-
+  span {
+    text-transform: uppercase;
+  }
 }
 
 .Word-container:not(.Word-container--rotate) {
@@ -17,7 +19,6 @@
 }
 
 .Word-letter {
-  text-transform: uppercase;
   color: white;
 }
 .Word-blank {

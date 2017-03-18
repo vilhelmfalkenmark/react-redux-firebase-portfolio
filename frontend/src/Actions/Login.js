@@ -17,7 +17,6 @@ export function checkLoggedIn() {
 // LOGGA IN
 /////////////////////////////////////////////
 export function logIn(user) {
- console.log(user,"user från action");
  return function(dispatch) {
   Firebase.auth().signInWithEmailAndPassword(user.email, user.password).catch(function(error) {
      var errorCode = error.code;
@@ -25,7 +24,6 @@ export function logIn(user) {
      if(errorCode) {
       dispatch({type: "LOG_IN_FAILED", payload: true})
      } else {
-      console.log("Ingen error!!!");
       dispatch({type: "LOGGED_IN", payload: true})
      }
    });

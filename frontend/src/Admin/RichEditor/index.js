@@ -9,7 +9,7 @@ export default class RichEditor extends React.Component {
      this.state = {editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(props.defaultContent)))}
     }
     else if(JSON.parse(props.draft)) {
-      console.log(JSON.parse(props.draft));
+      // console.(JSON.parse(props.draft));
      this.state = {editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(
       localStorage.getItem("draft")
      )))}

@@ -11,53 +11,44 @@ class LandingContainer extends Component {
   super(props)
   this.state = {
    words: {
-    one: {
-     word: "Jag är en Webbutvecklare"
-    },
     a: {
-     word: "& Front-End Entusiast"
+     word: "Webb utvecklare"
+    },
+    t: {
+     word: "Front-End utvecklare"
     },
     b: {
-     word: "Född och uppvuxen i Stockholm."
+     word: "Javascript utvecklare"
     },
     c: {
-     word: "Jag tycker Javascript och ES6..."
+     word: "React & Redux utvecklare"
     },
     d: {
-     word: "är roligast att skriva kod i."
+     word: "Node.js utvecklare"
+    },
+    f: {
+     word: "Express Rest API utvecklare"
+    },
+    c: {
+     word: "Angular utvecklare"
+    },
+    g: {
+     word: "SASS utvecklare"
     },
     e: {
-     word: "Och just nu blir det mest React-redux"
+     word: "Wordpress utvecklare"
     },
-    // f: {
-    //  word: "Men har inget emot att utveckla mot lamp-stacken"
-    // },
-    g: {
-     word: "har svart bälte i SASS"
+    f: {
+     word: "PHP & MySQL utvecklare"
     },
     h: {
-     word: "Wordpressare"
-    },
-    i: {
-     word: "& PHP-utvecklare"
-    },
-    j: {
-     word: "Men just nu känns Node.js roligare"
-    },
-    k: {
-     word: "Notorisk Gitarrknäppare"
+     word: "Git utvecklare"
     },
     l: {
-     word: "Cyklar jättesnabbt"
+     word: "Firebase utvecklare"
     },
-    // m: {
-    //  word: "Cyklar jättesnabbt"
-    // },
-    n: {
-     word: "Föredrar att kallas 'Ville'"
-    },
-    o: {
-     word: "Kul att du är här!"
+    l: {
+     word: "MongoDB utvecklare"
     }
    }
   }

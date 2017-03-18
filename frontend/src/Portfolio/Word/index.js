@@ -61,7 +61,8 @@ class Word extends Component {
  }
 
   render () {
-    const {word,rotate} = this.state;
+    const {word,rotate,hardCoded} = this.state;
+    const {hardCodedWord} = this.props;
     const splittedWord = word.split("");
 
     const letters = splittedWord.map((letter,i) => {
@@ -71,6 +72,7 @@ class Word extends Component {
       return <span className="Word-blank" key={i}></span>
      }
     })
+    // const hardCodedWordHTML = hardCodedWord.split("").map((letter,i) => <span key={i}>{letter}</span>);
     return (
       <div className={rotate ? "Word-container Word-container--rotate":"Word-container"}>
        {letters}

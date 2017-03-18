@@ -12,7 +12,12 @@
 }
 .Experience-card {
   background-color: $content-grey;
-  padding: $base*2;
+  padding: $base*2 $base;
+  @include breakpoint(600px) {
+    padding: $base*2;
+  }
+
+
   transition: all .2s ease;
   @include breakpoint(601px, 1099px) {
     margin-left: 200px;

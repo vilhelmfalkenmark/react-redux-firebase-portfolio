@@ -43,10 +43,12 @@ $menuItemOpacity: 0.5;
   display: flex;
   position: relative;
   @include breakpoint(1px, #{$p-headerCollapse}-1) {
-    @include flex-position(center);
     .Header-logo {
       position: absolute;
-      top: 10px;
+      right: 0;
+      top: 20px;
+      margin-left:100px;
+      left: 0;
       font-size: 20px;
     }
   }
@@ -64,6 +66,7 @@ $menuItemOpacity: 0.5;
   @include breakpoint(1px, #{$p-headerCollapse}-1) {
     margin: 0 auto;
     padding: 0;
+    align-self: center;
   }
   @include breakpoint($p-headerCollapse) {
     @include flex-row();

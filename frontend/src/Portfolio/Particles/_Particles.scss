@@ -4,6 +4,7 @@
   height: 100%;
   width: 100%;
   top: 0;
+  left: 0;
   @include gradient-bg(left,$pink,darken($yellow,10%));
   // background-image: url("../assets/images/hero/space.jpg");
   background-size: cover;
