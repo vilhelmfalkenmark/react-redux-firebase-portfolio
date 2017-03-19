@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 const ArticleTeaser = (props) => {
  const {teaser, categorys} = props;
  const style = teaser.image ? {
-  backgroundImage: `url(${process.env.PUBLIC_URL}/uploads/${teaser.image})`
+  backgroundImage: `url(${teaser.image.downloadURL})`
  } : {
   backgroundImage: `url(${process.env.PUBLIC_URL}/images/404.jpg`
  }

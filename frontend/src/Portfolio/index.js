@@ -12,7 +12,7 @@ import Footer from "./Footer";
 import { connect } from 'react-redux';
 import Burger from "../GlobalComponents/Burger";
 import { portfolioBurger } from "../Actions/Burger";
-
+import {throttle, debounce} from "lodash";
 
 
 // import {throttle, debounce} from "lodash";
@@ -29,6 +29,26 @@ closeMenu() {
   this.props.dispatch(portfolioBurger(true))
  }
 }
+
+componentDidMount() {
+ var previousTop = window.pageYOffset;
+    document.addEventListener('scroll',
+    throttle( () => {
+     if(window.pageYOffset > 0) { // <-- Man är inte högst upp på sidan		 +  this.props.dispatch(portfolioBurger(true))
+     var currentOffTop = window.pageYOffset;
+     if(currentOffTop > previousTop && window.pageYOffset > 130) {
+      this.setState({ pageTop: false})
+     } else {
+      this.setState({ pageTop: true})
+    }
+     previousTop = currentOffTop;
+   } else {
+    this.setState({ pageTop: true})
+    }}, 250)
+  );
+  }
+
+ componentWillUnmount() {document.removeEventListener('scroll', throttle());}
 
 
 render () {
@@ -49,7 +69,7 @@ return (
                <li><Link to={`/portfolio`} activeClassName="is-active">Portfolio</Link></li>
                <li><Link to={`/erfarenheter`}activeClassName="is-active" >Erfarenheter</Link></li>
              </ul>
-             <Link to={`/`} className="Header-logo" onClick={this.closeMenu.bind(this)}>VF</Link>
+             <Link to={`/`} className="Header-logo" onClick={this.closeMenu.bind(this)}></Link>
             </menu>
          </header> : null
         }

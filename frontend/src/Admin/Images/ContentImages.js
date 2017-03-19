@@ -3,46 +3,51 @@
 // man ska kunna välja en bild till inenhåll
 // exempelvis portfolio och artiklar
 ///////////////////////////////////////////////
-import React from 'react';
+import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
-import { getImages } from "../../Actions/Images";
-class ContentImages extends React.Component {
+import { firebaseConnect, helpers, firebase } from 'react-redux-firebase'
+const { isLoaded, isEmpty, dataToJS } = helpers
+
+class ContentImagesContainer extends React.Component {
 constructor() {
  super()
  this.state={
   highlighted: null
  }
 }
- componentDidMount() {
-  this.props.dispatch(getImages());
- }
 
-selectImage(image,highlighted) {
- this.props.selectImage(image)
+selectImage(imageObject,highlighted) {
+ this.props.selectImage(imageObject)
  this.setState({highlighted})
 }
-
 render() {
 const {images} = this.props;
 const {highlighted} = this.state;
+
 return(
  <div className="A-image-cols">
     {
-     images.images.map( (image, i) =>
-     <div
-     className={ i === highlighted ? "A-image-col A-image-col--highlighted" : "A-image-col "}
-     key={i}
-     onClick={() => this.selectImage(image,i)}>
-       <img src={process.env.PUBLIC_URL+"/uploads/"+image} alt={image}/>
-     </div> )
+     (!isLoaded(images))
+            ? 'Laddar bilder'
+            : (isEmpty(images))
+              ? 'Inga bilder uppladdade'
+              : Object.keys(images).map((key,i) => (
+               <div key={i} onClick={() => this.selectImage(images[key],i)}
+                className={ i === highlighted ? "A-image-col A-image-col--highlighted" : "A-image-col "}>
+                 <img src={images[key].downloadURL} />
+               </div>
+              ))
     }
  </div>
 )
 }
 }
-const mapStateToProps = (state) => {
-  return {
-    images: state.images
-  }
-}
-export default connect(mapStateToProps)(ContentImages);
+const ContentImages = firebase([
+  'images'
+])(ContentImagesContainer)
+
+export default connect(
+  ({firebase}) => ({
+    images: dataToJS(firebase, "images")
+  })
+)(ContentImages)

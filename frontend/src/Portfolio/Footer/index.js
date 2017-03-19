@@ -39,7 +39,7 @@ class Footer extends React.Component {
          <p>
           Jag är född uppvuxen i Stockholm och har alltid varit
            väldigt intresserad av teknik och kreativa processer. För tillfället arbetar jag hos <a href="https://wunderkraut.se/" target="_blank">Wunderkraut</a> som
-           webbutvecklare. När jag inte haxxar kod spenderar jag min tid åt gejming, cykling,
+           webbutvecklare. När jag inte skriver kod spenderar jag min tid åt gejming, cykling,
            gitarrspelande, musik i allmänhet och min snälla flickvän.
            Carpe Diem. &#x1F60D;
          </p>

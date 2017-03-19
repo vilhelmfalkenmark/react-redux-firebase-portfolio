@@ -14,7 +14,7 @@ render(){
        <label >Skrivet: {article.date}</label>
       </header>
        {
-        article.image ? <img src={process.env.PUBLIC_URL+"/uploads/"+article.image} alt={process.env.PUBLIC_URL+article.image} /> : null
+        article.image ? <img src={article.image.downloadURL} alt={article.image.name} /> : null
        }
 
        <div dangerouslySetInnerHTML={{

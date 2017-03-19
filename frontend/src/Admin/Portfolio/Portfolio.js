@@ -49,7 +49,6 @@ render(){
                             )
 
 
-    var imagePath = process.env.PUBLIC_URL+"/uploads/";
 
     var button = sure ?
     <button onClick={deletePortfolio} className="A-col-btn--delete">Ja, Radera</button> :
@@ -60,7 +59,7 @@ render(){
     return (
       <div className="A-col--wide A-col--wide-portfolio">
         <label>Bild</label>
-         <img src={imagePath+portfolio.image} alt={portfolio.image}/>
+         <img src={portfolio.image.downloadURL} alt={portfolio.image.name}/>
          <label>Titel</label>
          <input type="text" defaultValue={portfolio.title} ref="title"/>
          <span></span>

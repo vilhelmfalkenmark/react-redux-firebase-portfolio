@@ -26,7 +26,7 @@ class EditArticleContainer extends React.Component {
  }
  selectImage(image) {
   this.setState({
-   selectedImage:image
+   selectedImage: image
   })
  }
  selectCategory(val, initialCategory) {
@@ -141,7 +141,7 @@ render(){
                         </div>
                         <div className="A-input-row-input">
                         <label>Nuvarande bild</label>
-                        <div className="Article-edit-image"> <img src={process.env.PUBLIC_URL+"/uploads/"+article.image} alt={article.image} />
+                        <div className="Article-edit-image"> <img src={article.image.downloadURL} alt={article.image.name} />
                         </div>
                          </div>
                        </div> : null

@@ -10,6 +10,20 @@ import promise from "redux-promise-middleware"
 const middleware = process.env.NODE_ENV==="production" ?
                    applyMiddleware(promise(),thunk) : applyMiddleware(promise(), thunk, logger())
 
+const config = {
+ fileMetadataFactory: (uploadRes) => {
+   // upload response from Firebase's storage upload
+   const { metadata: { name, fullPath, downloadURLs } } = uploadRes
+   // default factory includes name, fullPath, downloadURL
+   return {
+     name,
+     fullPath,
+     downloadURL: downloadURLs[0]
+   }
+ }
+}
+
+
 Firebase.initializeApp(FirebaseConfig);
   const createStoreWithMiddleware = compose(middleware,
     reduxFirebase(FirebaseConfig, { userProfile: 'users' }),

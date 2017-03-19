@@ -26,7 +26,7 @@ render(){
          <label>Rubrik</label>
          <h4>{article.title}</h4>
          <label>Bild</label>
-         <p>{ typeof(article.image) !== "undefined" ? article.image : "Ingen bild" }</p>
+         <p>{ typeof(article.image) !== "undefined" ? article.image.name : "Ingen bild" }</p>
          <label>Kategori</label>
          <p>{article.categoryName} </p>
          <label>Skrivet</label>

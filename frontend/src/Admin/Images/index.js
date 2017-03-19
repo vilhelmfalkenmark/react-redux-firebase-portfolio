@@ -1,91 +1,72 @@
-import React from 'react';
+import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
-import { getImages, uploadImage, deleteImage } from "../../Actions/Images";
+import { firebaseConnect, helpers, firebase } from 'react-redux-firebase'
+const { isLoaded, isEmpty, dataToJS } = helpers
+import Dropzone from 'react-dropzone'
 import Image from "./Image";
+const filesPath = 'images'
 
+class ImagesContainer extends Component {
 
-class ImagesContainer extends React.Component {
-
- constructor() {
-  super()
-  this.state = {
-  file: "",
-  imagePreviewUrl: "",
-  imagePreview: null
- };
- }
-
- _handleSubmit(e) {
-  this.setState({
-   imagePreview: null
-  })
-}
-
-_handleImageChange(e) {
-  e.preventDefault();
-  let reader = new FileReader();
-  let file = e.target.files[0];
-  reader.onloadend = () => {
-    this.setState({
-      file: file,
-      imagePreviewUrl: reader.result,
-      imagePreview: <img src={reader.result} />
-    });
+  constructor() {
+   super()
+   this.state = {
+    loading: false
+   }
   }
-  reader.readAsDataURL(file)
-}
 
-//////////////////////////////////////////
-// RADERA BILD
-//////////////////////////////////////////
-deleteImage(image) {
- this.props.dispatch(deleteImage(image));
-}
-//////////////////////////////////////////
-// componentDidMount
-//////////////////////////////////////////
- componentDidMount() {
- this.props.dispatch(getImages());
- }
- //////////////////////////////////////////
- // Hämta bilder om de inte redan skett
- //////////////////////////////////////////
- getImages() {
-  this.props.dispatch(getImages());
- }
+  static propTypes = {
+    firebase: PropTypes.object.isRequired,
+    images: PropTypes.object
+  }
+
+  onFilesDrop = (files) => {
+    // Uploads files and push's objects containing metadata to database at dbPath
+    // uploadFiles(storagePath, files, dbPath)
+    this.props.firebase.uploadFiles(filesPath, files, filesPath)
+
+  }
+
+  deleteImage(file, key) {
+   // Deletes file and removes metadata from database
+   // deleteFile(storagePath, dbPath)
+   this.props.firebase.deleteFile(file.fullPath, `${filesPath}/${key}`)
+  }
+
 
   render () {
-    const {images,fetched} = this.props
-    let {imagePreviewUrl, imagePreview} = this.state;
+    const { images } = this.props;
+    var imageList = (!isLoaded(images))
+                              ? 'Laddar bilder'
+                              : (isEmpty(images))
+                                ? 'Inga bilder uppladdade'
+                                : Object.keys(images).map((key) => (
+                                 <Image key={key} id={key} image ={images[key]} deleteImage={this.deleteImage.bind(this)} />
+                                ))
+
+
+
     return (
       <div className="A-block">
-      <h1>Ladda upp bilder</h1>
-      <form className="Images-form" action="/" method="POST" encType="multipart/form-data" onSubmit={(e)=>this._handleSubmit(e)} >
-        <div className="Images-file-btn"> Välj fil
-         <input type="file" name="image" onChange={(e)=>this._handleImageChange(e)}/>
-        </div>
-        <input type="submit" value="Ladda upp bild" />
-        </form>
-        <div className="Images-img-preview">
-            {imagePreview}
-        </div>
-        <button className="Images-fetch-btn" onClick={this.getImages.bind(this)}>Hämta alla bilder</button>
+        <Dropzone onDrop={this.onFilesDrop} className="Images-dropzone">
+          <h4> Släpp filer här eller klicka för att välja </h4>
+        </Dropzone>
         <div className="A-cols">
-        {
-          images.fetched ? images.images.map( (image, i) => <Image
-          deleteImage = {this.deleteImage.bind(this)}
-          key ={i}
-          image={image}/> ) : null
-        }
-       </div>
-       </div>
+         {
+          imageList
+          }
+        </div>
+      </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    images: state.images
-  }
-}
-export default connect(mapStateToProps)(ImagesContainer);
+const Images = firebase([
+  filesPath
+])(ImagesContainer)
+
+export default connect(
+  ({firebase}) => ({
+    images: dataToJS(firebase, "images")
+  })
+)(Images)

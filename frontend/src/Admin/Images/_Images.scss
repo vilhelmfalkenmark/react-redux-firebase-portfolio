@@ -1,42 +1,39 @@
-.Images-form {
-
-.Images-file-btn {
-  @include flat-btn($turq);
-  display: inline-block;
-
-  width: 200px;
-  position: relative;
-  text-align: center;
-  cursor: pointer;
- input {
-   width: inherit;
-   cursor: pointer;
-   position: absolute;
-   left: 0;
-   right: 0;
-   top: 0;
-   bottom: 0;
-   opacity: 0;
- }
-}
-input[type="submit"] {
-
-  margin: $base;
-  @include flat-btn($turq);
-  width: 200px;
-  display: inline-block;
-}
-
-}
-
+// .Images-form {
+//
+// .Images-file-btn {
+//   @include flat-btn($turq);
+//   display: inline-block;
+//
+//   width: 200px;
+//   position: relative;
+//   text-align: center;
+//   cursor: pointer;
+//  input {
+//    width: inherit;
+//    cursor: pointer;
+//    position: absolute;
+//    left: 0;
+//    right: 0;
+//    top: 0;
+//    bottom: 0;
+//    opacity: 0;
+//  }
+// }
+// input[type="submit"] {
+//
+//   margin: $base;
+//   @include flat-btn($turq);
+//   width: 200px;
+//   display: inline-block;
+// }
+//
+// }
 
 .Images-fetch-btn {
   @include flat-btn($turq);
   width: 200px;
 
 }
-
-
 .Images-cols {
   @include flex-row();
 }
@@ -45,5 +42,23 @@ input[type="submit"] {
   img {
     width: 100%;
     height: auto;
+  }
+}
+
+.Images-dropzone {
+  margin: 0 auto;
+  @include flex-position(center);
+  height: 200px;
+  width: 100%;
+  border: 1px solid $turq;
+  cursor: pointer;
+  transition: all .2s ease;
+  &:hover {
+    background-color: $label-grey;
+    color: white;
+    border: 1px solid $label-grey;
+  }
+  h4 {
+    padding: $base;
   }
 }

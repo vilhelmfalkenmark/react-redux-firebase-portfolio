@@ -4,6 +4,7 @@
 
 $menuItemOffset: -60px;
 $menuItemOpacity: 0.5;
+$header-size: 85px;
 
 .Portfolio-container {
   .Burger-container {
@@ -32,7 +33,11 @@ $menuItemOpacity: 0.5;
     right: 0;
     width: 100%;
     transform: translateX(0);
+    transition: transform .3s ease;
     height: auto;
+    &.is-hidden {
+      transform: translateY(-$header-size - 5px);
+    }
     }
 }
 
@@ -133,21 +138,9 @@ $menuItemOpacity: 0.5;
 // Open burger telefonläge
 @include breakpoint(1px,#{$p-headerCollapse - 1}) {
 
-  .Menu-list {
-    li {
-      // opacity: $menuItemOpacity;
-      }
-    }
-
-
   .Portfolio-container.menu-open {
     .Header {
       transform: translateX(0);
-    }
-    .Menu-list {
-      li {
-        // animation: menuItemIn .2s ease-out forwards;
-      }
     }
     .Main-container {
       transform: translateX($p-menuWidth);
@@ -158,32 +151,16 @@ $menuItemOpacity: 0.5;
   }
   }
 
-
-
-  .Portfolio-container:not(.menu-open) {
-    .Menu-list {
-      li {
-        // animation: menuItemOut .2s ease forwards;
-      }
-    }
-  }
 //////////////////////////////////////////
 // LOGO
 //////////////////////////////////////////
 
-
-$header-size: 55px;
-$header-height: 31.75px;
-$header-margin: 15.88px;
-$header-border: 27.5px;
 .Header-logo {
   cursor: pointer;
-  margin-top: 5px;
   height: $header-size;
   width: $header-size;
-  background: url("../assets/svg/shield.svg") no-repeat center center;
-  background-size: 45px;
-  @include flex-position(center);
+  background: url("../assets/svg/ville_avatar.svg") no-repeat center center;
+  background-size: $header-size - 10px;
   color: white;
   text-decoration: none;
   font-size: 26px;

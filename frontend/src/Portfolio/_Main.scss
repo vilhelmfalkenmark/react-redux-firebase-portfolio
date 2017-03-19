@@ -19,13 +19,13 @@
   min-height: calc(100vh - #{150px});
   flex-direction: column;
   padding-top: $base;
-  padding-bottom: 2*$base; 
+  padding-bottom: 2*$base;
   p {
     font-family: sofiaLight;
   }
   @include p-content();
   @include breakpoint(1100px) {
-    padding-top: 5*$base;
+    padding-top: 85px;
   }
   section {
     margin: 0 0 $base 0;
@@ -34,10 +34,7 @@
     }
   }
   h1 {
-    // margin: 0;
     padding-top: 2*$base;
-    // text-align: center;
-    // color: $red;
   }
   h1,h2,h3,h4,h5 {
     margin-top: 0;

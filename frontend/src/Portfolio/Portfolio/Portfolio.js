@@ -8,7 +8,7 @@ const Portfolio = (props) => {
   <div className="Portfolio-col-left">
    <a className="Portfolio-computer" href={link} target="_blank">
     <span>Till {title}</span>
-    <img src={`${process.env.PUBLIC_URL}/uploads/${image}`} alt={`${title}`} />
+    <img src={image.downloadURL} alt={image.name} />
    </a>
   </div>
   <div className="Portfolio-col-right">
