@@ -1,11 +1,12 @@
 import React from "react";
 import Particles from 'react-particles-js';
 export default class ParticleContainer extends React.Component {
+
 render(){
      const ParticlesjsConfig = {
          particles: {
              number: {
-                 value: 50,
+                 value: 40,
                  density: {
                      enable: true,
                      value_area: 800
@@ -63,7 +64,7 @@ render(){
              },
              move: {
                  enable: !0,
-                 speed: 3,
+                 speed: 2,
                  direction: "none",
                  random: !1,
                  straight: !1,
@@ -126,9 +127,7 @@ render(){
      }
         return (
          <section className="Particles">
-          <Particles
-           params={ParticlesjsConfig}
-           style={style}  />
+          <Particles params={ParticlesjsConfig} style={style} />
          </section>
         );
     };

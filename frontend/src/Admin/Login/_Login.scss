@@ -1,11 +1,29 @@
 .A-Login-container {
   height: 100vh;
+
+  @include breakpoint(1px,799px) {
+    background-color: white;
+
+  }
+
+
   @include flex-position(center);
   background-color: $content-grey;
 }
 .A-Login-inner {
   background-color: white;
-  padding: 4*$base;
+  @include breakpoint(1px,799px) {
+    padding: $base;
+    h1 {
+      font-size: 20px;
+    }
+  }
+
+
+  @include breakpoint(800px) {
+    padding: 4*$base;
+  }
+
   label {
     margin-top: 3*$base;
   }

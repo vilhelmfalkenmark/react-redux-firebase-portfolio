@@ -179,6 +179,12 @@ $tilt-mobile: 35px;
   .Footer-icon--linkedin {
     background-image: url("../assets/svg/footer-logos/white/linkedin-logo.svg");
   }
+  .Footer-face {
+    display: none;
+  }
+  .Footer-right {
+    @include flex-position(center);
+  }
 }
 
 //////////////////////////////////////////

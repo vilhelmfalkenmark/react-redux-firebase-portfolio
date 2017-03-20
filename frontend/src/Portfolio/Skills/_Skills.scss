@@ -25,6 +25,7 @@
   @include breakpoint(1124px) {
     @include flex-gtr-col(4,2*$base);
   }
+  margin-bottom: 2*$base;
 }
 
 .Skill {

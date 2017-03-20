@@ -61,7 +61,10 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 // Skills kolumner
 //////////////////////////////////////////
 .A-col--skill {
-  @include breakpoint(1px, 959px) {
+  @include breakpoint(1px,500px) {
+    @include flex-gtr-col(1,$base);
+  }
+  @include breakpoint(501px, 959px) {
     @include flex-gtr-col(2,$base);
   }
   @include breakpoint(960px, 1249px) {
