@@ -9,8 +9,11 @@
 .A-Content-container { // CONTENT-CONTAINER
   padding: 0;
   background-color: darken($content-grey,3%);
-  transition: all .3s ease;
   width: 100%;
+  @include breakpoint(1px,768px) {
+    padding: 2*$base 0;
+    transition: transform .3s ease;
+  }
   @include breakpoint(768px) {
     padding: 2*$base 0;
   }
@@ -18,7 +21,7 @@
 .A-Content-container-inner {
   margin: 0 auto;
   padding: $base;
-  width: calc(100% - #{$base/0});
+  // width: calc(100% - #{$base});
   background-color: darken(white,2%);
   box-shadow: 0px 0px 21px -6px rgba(0,0,0,0.75);
   @include breakpoint(768px) {

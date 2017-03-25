@@ -48,13 +48,20 @@ section.Comment-container {
 .Comment-container-inner {
   background-color: white;
   overflow-x: hidden;
-  max-height: calc(100vh - 50px);
-  height: 600px;
+  @include breakpoint(1px,767px) {
+    width: calc(100% - #{$base});
+    height: 500px;
+    max-height: calc(100vh - 20px);
+    height: 600px;
+  }
+  @include breakpoint(768px) {
+    width: 95%;
+    max-width: 560px;
+    max-height: calc(100vh - 50px);
+    height: 600px;
+  }
   position: relative;
-  width: 95%;
-  max-width: 560px;
   margin: 0 auto;
-
 }
 
 .Comment-container-slider {

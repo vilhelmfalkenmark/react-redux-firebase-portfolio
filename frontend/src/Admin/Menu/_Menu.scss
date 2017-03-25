@@ -6,6 +6,7 @@ $menu-width-large: 280px;
 /////////////////////////////////////////////
 @include breakpoint(1px, 767px) {
   .A-Menu-container {
+    transition: transform .3s ease;
     width: $menu-width-small;
     transform: translateX(-$menu-width-small);
     li {
@@ -59,7 +60,6 @@ $menu-width-large: 280px;
   color: white;
   position: fixed;
   height: 100%;
-  transition: all .3s ease;
 }
 
 .A-Menu {

@@ -22,7 +22,7 @@ class Footer extends React.Component {
           <h3>Kontakt</h3>
           <ul>
            <li><a href="tel:0705580198" target="_blank"><i className="flaticon-technology"></i> 0705580198</a></li>
-           <li><a href="mailto:vilhelmfalkenmark@gmail.com" target="_blank"><i className="flaticon-mail"></i> info@vilhelmfalkenmark.se</a></li>
+           <li><a href="mailto:vilhelmfalkenmark@gmail.com" target="_blank"><i className="flaticon-mail"></i> vilhelmfalkenmark@gmail.com</a></li>
            <li><a href="https://sv.wikipedia.org/wiki/Stockholm" target="_blank"><i className="flaticon-placeholder"></i> Stockholm</a></li>
           </ul>
           <div className="Footer-icons">

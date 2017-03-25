@@ -40,6 +40,7 @@ class PortfolioContainer extends Component {
    return (
     <div className="Content-container">
      <h1 className="u-Center">Portfolio</h1>
+     <h3 className="u-Center">Ett urval av saker jag gjort</h3>
      {portfolioList}
     </div>
    )
