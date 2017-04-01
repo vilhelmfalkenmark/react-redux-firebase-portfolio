@@ -16,7 +16,8 @@ class ArticlesContainer extends React.Component {
     let articleTeasers = null;
     let articleArray = [];
     let categoryArray = [];
-
+    // console.log(articleLatest,"articleLatest");
+    // console.log(articleArray,"articleArray");
     if(
      (isLoaded(articles) && !isEmpty(articles)) &&
      (isLoaded(categorys) && !isEmpty(categorys))
@@ -42,7 +43,7 @@ class ArticlesContainer extends React.Component {
          {/* SENAST SKAPADE ARTIKLAR */}
          {
           articleLatest !== null ?
-          <section>
+          <section className="Tja">
           <ArticleFull
            key={Date.now()}
            article={articleLatest}

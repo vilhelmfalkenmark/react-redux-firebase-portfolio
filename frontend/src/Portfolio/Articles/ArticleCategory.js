@@ -30,8 +30,8 @@ class ArticleCategoryContainer extends React.Component {
        categoryArray.push(categorys[key]);
       if(categorys[key].url === categoryURL) {
        categoryKey = key;
-       console.log(key);
-       console.log(categoryHeader,"categoryHeader");
+       // console.log(key);
+       // console.log(categoryHeader,"categoryHeader");
        categoryHeader = categorys[key].name;
       }
      }

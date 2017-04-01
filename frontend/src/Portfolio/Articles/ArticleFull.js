@@ -1,11 +1,10 @@
 import React from 'react'
-import { firebase, helpers } from 'react-redux-firebase'
 import CommentBox from "../Comment";
 
 class ArticleFull extends React.Component {
 render(){
-    const {article,category}=this.props;
-    document.title=`${article.title} | Vilhelm Falkenmark`;
+    const {article, category}=this.props;
+   document.title=`${article.title} | Vilhelm Falkenmark`;
     return (
      <article className="Article">
       <header>
@@ -14,10 +13,9 @@ render(){
        <label >Skrivet: {article.date}</label>
       </header>
        {
-        article.image ? <img src={article.image.downloadURL} alt={article.image.name} /> : null
+       article.image ? <img src={article.image.downloadURL} alt={article.image.name} /> : null
        }
-
-       <div dangerouslySetInnerHTML={{
+        <div dangerouslySetInnerHTML={{
         __html: article.rawHTML
          }}>
        </div>
@@ -26,5 +24,3 @@ render(){
   }
 }
 export default ArticleFull;
-// export default firebase()(ArticleFull)
-//<CommentBox articleKey={theArticle[0].key} />

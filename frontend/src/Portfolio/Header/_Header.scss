@@ -34,7 +34,7 @@ $header-size: 85px;
     width: 100%;
     transform: translateX(0);
     transition: transform .3s ease;
-    height: auto;
+    height: 85px;
     &.is-hidden {
       transform: translateY(-$header-size - 5px);
     }
