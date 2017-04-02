@@ -61,8 +61,8 @@ class Word extends Component {
  }
 
   render () {
-    const {word,rotate,hardCoded} = this.state;
-    const {hardCodedWord} = this.props;
+    const {word,rotate} = this.state;
+    // const {hardCodedWord} = this.props;
     const splittedWord = word.split("");
 
     const letters = splittedWord.map((letter,i) => {

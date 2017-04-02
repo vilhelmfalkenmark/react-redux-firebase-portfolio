@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import {Link} from 'react-router';
 import {throttle, debounce} from "lodash";
 import {portfolioBurger} from "../../Actions/Burger";
@@ -9,26 +10,34 @@ class Menu extends React.Component {
         super()
         this.state = {
             pageTop: true,
-            previousTop: window.pageYOffset
+            previousTop: window.pageYOffset,
+            scrollReference: null
         }
          this.scrollyMacScrollFace = this.scrollyMacScrollFace.bind(this)
     }
 
     componentDidMount() {
-        document.addEventListener('scroll', throttle( () => { this.scrollyMacScrollFace() }, 250));
+
+      document.addEventListener('scroll', this.scrollyMacScrollFace, true)
+      // ReactDOM.findDOMNode(this).addEventListener('scroll', throttle( () => { this.scrollyMacScrollFace.bind(this)() }, 250), false)
+        // document.addEventListener('scroll', throttle( () => { this.scrollyMacScrollFace() }, 250));
     }
 
     componentWillUnmount() {
-        // console.log(this.scrollyMacScrollFace.bind(this));
-        document.removeEventListener('scroll', throttle( () => { }, 250));
-    }
+     document.removeEventListener('scroll',this.scrollyMacScrollFace,true)
+     // document.removeEventListener('scroll', throttle( () => { this.scrollyMacScrollFace.bind(this)() }, 250),false)
+     // ReactDOM.findDOMNode(this).removeEventListener('scroll', throttle( () => { this.scrollyMacScrollFace.bind(this)() }, 250),false)
+     console.log(this.state.scrollReference,"scrollReference");
 
+    }
 
 
 
     scrollyMacScrollFace() {
-     const { previousTop } = this.state;
      // throttle( () => {
+      const { previousTop } = this.state;
+
+     console.log("scrollyMacScrollFace kallas!");
       if (window.pageYOffset > 0) { // <-- Man är inte högst upp på sidan
           var currentOffTop = window.pageYOffset;
           if (currentOffTop > previousTop && window.pageYOffset > 130) {
@@ -40,8 +49,12 @@ class Menu extends React.Component {
       } else {
           this.setState({pageTop: true})
       // }}, 300)
+     }
     }
-   }
+
+
+
+
     closeMenu() {
         if (this.props.burger) {
             this.props.dispatch(portfolioBurger(true))
