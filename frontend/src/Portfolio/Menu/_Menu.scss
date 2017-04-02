@@ -77,9 +77,11 @@ $header-size: 85px;
     @include flex-row();
   }
   li {
+
     @include breakpoint($p-headerCollapse) {
       margin-right: $base/2;
       min-width: 140px;
+
       @include flex-position(center);
     }
 
@@ -125,6 +127,8 @@ $header-size: 85px;
     opacity: $menuItemOpacity;
   }
 }
+
+
 
 // @mixin animateDelay($time) {
 //   animation-delay: $time !important;

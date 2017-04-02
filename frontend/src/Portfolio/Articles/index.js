@@ -43,7 +43,7 @@ class ArticlesContainer extends React.Component {
          {/* SENAST SKAPADE ARTIKLAR */}
          {
           articleLatest !== null ?
-          <section className="Tja">
+          <section>
           <ArticleFull
            key={Date.now()}
            article={articleLatest}

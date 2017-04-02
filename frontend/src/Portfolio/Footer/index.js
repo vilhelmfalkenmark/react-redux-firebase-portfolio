@@ -38,10 +38,10 @@ class Footer extends React.Component {
          <div className="Footer-face"></div>
          <p>
           Jag är född uppvuxen i Stockholm och har alltid varit
-           väldigt intresserad av teknik och kreativa processer. För tillfället arbetar jag hos <a href="https://wunderkraut.se/" target="_blank">Wunderkraut</a> som
-           webbutvecklare. När jag inte skriver kod spenderar jag min tid åt gejming, cykling,
+           väldigt intresserad av teknik och kreativa processer. För tillfället arbetar jag som
+           Webbutvecklare med fokus på Javascript hos <a href="https://www.linasmatkasse.se/" target="_blank">Linas Matkasse</a>.
+           När jag inte skriver kod spenderar jag min tid åt gejming, cykling,
            gitarrspelande, musik i allmänhet och min snälla flickvän.
-           Carpe Diem. &#x1F60D;
          </p>
         </div>
        </div>

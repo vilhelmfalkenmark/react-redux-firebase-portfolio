@@ -10,34 +10,23 @@ class Menu extends React.Component {
         super()
         this.state = {
             pageTop: true,
-            previousTop: window.pageYOffset,
-            scrollReference: null
+            previousTop: window.pageYOffset
         }
-         this.scrollyMacScrollFace = this.scrollyMacScrollFace.bind(this)
+         this.scrollyMacScrollFace = throttle(this.scrollyMacScrollFace.bind(this),250)
     }
 
     componentDidMount() {
-
       document.addEventListener('scroll', this.scrollyMacScrollFace, true)
-      // ReactDOM.findDOMNode(this).addEventListener('scroll', throttle( () => { this.scrollyMacScrollFace.bind(this)() }, 250), false)
-        // document.addEventListener('scroll', throttle( () => { this.scrollyMacScrollFace() }, 250));
     }
 
     componentWillUnmount() {
      document.removeEventListener('scroll',this.scrollyMacScrollFace,true)
-     // document.removeEventListener('scroll', throttle( () => { this.scrollyMacScrollFace.bind(this)() }, 250),false)
-     // ReactDOM.findDOMNode(this).removeEventListener('scroll', throttle( () => { this.scrollyMacScrollFace.bind(this)() }, 250),false)
-     console.log(this.state.scrollReference,"scrollReference");
-
     }
 
 
 
     scrollyMacScrollFace() {
-     // throttle( () => {
       const { previousTop } = this.state;
-
-     console.log("scrollyMacScrollFace kallas!");
       if (window.pageYOffset > 0) { // <-- Man är inte högst upp på sidan
           var currentOffTop = window.pageYOffset;
           if (currentOffTop > previousTop && window.pageYOffset > 130) {
@@ -48,22 +37,16 @@ class Menu extends React.Component {
           this.setState({ previousTop: currentOffTop })
       } else {
           this.setState({pageTop: true})
-      // }}, 300)
      }
     }
-
-
-
 
     closeMenu() {
         if (this.props.burger) {
             this.props.dispatch(portfolioBurger(true))
         }
     }
-
     render() {
         const {pageTop} = this.state;
-
         return (
             <header className={pageTop ? "Header" : "Header is-hidden"}>
                 <menu className="Menu">
