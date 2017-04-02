@@ -148,28 +148,31 @@ transition: all .2s ease;
 // Underline links animation
 /////////////////////////////////////////////
 @mixin underline($color: null) {
-  transition: all 0.2s ease;
-  text-decoration: none;
-  cursor: pointer;
-  &:after  {
-    bottom: -1px;
-    backface-visibility: hidden;
-    border: 1px solid rgba($color, 0);
-    content: " ";
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    transition: all 280ms ease-in-out;
-    width: 0;
-  }
-  &:hover {
-    color: $color;
-    &:after {
-    backface-visibility: hidden;
-    border-color: $color;
-    transition: width 350ms ease-in-out;
-    width: 100%;
-  }
+
+  @include breakpoint(900px) {
+    transition: all 0.2s ease;
+    text-decoration: none;
+    cursor: pointer;
+    &:after  {
+      bottom: -1px;
+      backface-visibility: hidden;
+      border: 1px solid rgba($color, 0);
+      content: " ";
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      transition: all 280ms ease-in-out;
+      width: 0;
+    }
+    &:hover {
+      color: $color;
+      &:after {
+      backface-visibility: hidden;
+      border-color: $color;
+      transition: width 350ms ease-in-out;
+      width: 100%;
+    }
+    }
   }
 }
 //////////////////////////////////////////

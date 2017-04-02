@@ -15,11 +15,11 @@ import Menu from "./Menu";
 
 class Portfolio extends React.Component {
 render () {
-const {adminActive, burger, isFixed} = this.props;
+const {adminActive, burger, isFixed, location} = this.props;
 return (
       <div className={(burger && !isFixed ) ? "Portfolio-container menu-open" : isFixed ? "Portfolio-container is-fixed" : "Portfolio-container" }>
        {!adminActive ? <Burger page="portfolio"/> : null }
-       {!adminActive ? <Menu />  : null  /* <-- Så att man inte ser menyn i adminvy */ }
+       {!adminActive ? <Menu pathname={location.pathname}/>  : null  /* <-- Så att man inte ser menyn i adminvy */ }
          <main className="Main-container">
           <Match exactly pattern={`/`} component={Landing}/>
           <Match pattern={`/fardigheter`} component={Skills}/>

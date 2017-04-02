@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import {Link} from 'react-router';
 import {throttle, debounce} from "lodash";
 import {portfolioBurger} from "../../Actions/Burger";
@@ -47,6 +46,7 @@ class Menu extends React.Component {
     }
     render() {
         const {pageTop} = this.state;
+        const {pathname} = this.props;
         return (
             <header className={pageTop ? "Header" : "Header is-hidden"}>
                 <menu className="Menu">
@@ -64,7 +64,7 @@ class Menu extends React.Component {
                             <Link to={`/portfolio`} activeClassName="is-active">Portfolio</Link>
                         </li>
                         <li>
-                            <Link activeClassName="is-active" to={`/erfarenheter`}>Erfarenheter</Link>
+                            <Link  to={`/erfarenheter`} activeClassName="is-active">Erfarenheter</Link>
                         </li>
                     </ul>
                     <Link to={`/`} className="Header-logo" onClick={this.closeMenu.bind(this)}></Link>

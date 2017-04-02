@@ -32,18 +32,18 @@
   background:  url("../assets/images/devices/macbook-flat.png") no-repeat center center;
   background-size: contain;
   position: relative;
-  height: 205px;
+  height: 185px;
   @include breakpoint(600px) {
     height: 300px;
   }
   width: 100%;
   cursor: pointer;
   @include flex-position(center);
-  // transition: all 0.3s ease;
   img {
     border-radius: 2px;
     margin-top: -3%;
-    max-width: 273px;
+    width: 77%;
+    max-width: 250px;
     display: block;
     @include breakpoint(600px) {
       width: 76%;
